@@ -94,6 +94,34 @@
   width: 18px !important;
   height: 18px !important;
 }
+
+/* Always show hotspot title labels — no click/hover required */
+.info-hotspot .info-hotspot-title-wrapper,
+.desktop .info-hotspot .info-hotspot-title-wrapper {
+  display: block !important;
+  width: auto !important;
+  max-width: 200px !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+.info-hotspot .info-hotspot-title-wrapper:before {
+  display: none !important;
+}
+/* Hide close button — labels are always open */
+.info-hotspot .info-hotspot-close-wrapper {
+  display: none !important;
+}
+/* Hide the expandable text body — title only */
+.info-hotspot .info-hotspot-text,
+.desktop .info-hotspot.visible .info-hotspot-text {
+  display: none !important;
+}
+/* Keep header always opaque */
+.info-hotspot .info-hotspot-header {
+  opacity: 1 !important;
+}
 </style>
 </head>
 <body class="single-scene ">

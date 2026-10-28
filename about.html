@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Joey Koh — REN 77548 | GT Nelson Realty | JB Properties HUB</title>
+<meta name="description" content="Joey Koh — Licensed Real Estate Negotiator REN 77548, GT Nelson Realty Sdn Bhd E(1)1836. Johor Bahru property marketing and buyer consultation specialist.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://johorbahru-properties.com/about.html">
+<link rel="icon" href="business%20logo.png" type="image/png">
+<link rel="apple-touch-icon" href="business%20logo.png">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<style>
+:root{
+  --bg:#0a0807;--bg2:#100e0c;--bg3:#161210;
+  --gold:#c98a2a;--gold-light:#e4aa4e;
+  --cream:#f5f0e8;--cream2:#c8bfb0;--cream3:#8a8070;
+  --rule:rgba(255,255,255,.09);
+  --serif:'Playfair Display',serif;--sans:'Inter',sans-serif;
+  --wa:#25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--cream);font-family:var(--sans);min-height:100vh;}
+.wrap{max-width:1000px;margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem);}
+
+/* NAV */
+.site-nav{position:sticky;top:0;z-index:80;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem;padding:1rem clamp(1.2rem,4vw,3rem);background:#ffffff;border-bottom:1px solid rgba(0,0,0,.08);box-shadow:0 2px 16px rgba(0,0,0,.07);}
+.nav-mark{display:flex;align-items:center;gap:.8rem;text-decoration:none;}
+.nav-mark img{height:42px;width:auto;display:block;}
+.nav-brand{font-family:var(--serif);font-size:.95rem;color:#1a1510;letter-spacing:.5px;line-height:1.2;}
+.nav-brand span{display:block;font-size:.62rem;font-family:var(--sans);color:#7a7060;letter-spacing:1.8px;text-transform:uppercase;}
+.nav-back{font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:#5a5040;text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color .2s;}
+.nav-back:hover{color:var(--gold);}
+
+/* PAGE HEADER */
+.page-header{background:var(--bg2);border-bottom:1px solid var(--rule);padding:3.5rem 0 3rem;}
+.eyebrow{font-size:.68rem;font-weight:600;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.8rem;}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold);}
+.page-header h1{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--cream);line-height:1.15;margin-bottom:.5rem;}
+.page-header h1 em{font-style:italic;color:var(--gold);}
+.page-header p{font-size:.88rem;color:var(--cream3);margin-top:.6rem;}
+
+/* IDENTITY CARD */
+.identity-card{background:rgba(201,138,42,.07);border:1px solid rgba(201,138,42,.25);border-radius:3px;padding:1.8rem 2rem;margin:2.5rem 0;}
+.identity-card h2{font-family:var(--serif);font-size:1.1rem;color:var(--gold);margin-bottom:1.2rem;font-weight:600;}
+.id-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem 2rem;}
+.id-item{padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.id-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--cream3);margin-bottom:.25rem;}
+.id-value{font-size:.88rem;color:var(--cream);font-weight:500;}
+@media(max-width:560px){.id-row{grid-template-columns:1fr;}}
+
+/* SECTIONS */
+.content-section{padding:3rem 0;border-bottom:1px solid var(--rule);}
+.content-section h3{font-family:var(--serif);font-size:1.3rem;color:var(--cream);margin-bottom:1rem;}
+.content-section p{font-size:.88rem;color:var(--cream3);line-height:1.9;margin-bottom:.9rem;}
+.content-section p:last-child{margin-bottom:0;}
+.content-section strong{color:var(--cream2);}
+
+/* PROFILE GRID */
+.profile-grid{display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:start;padding:3rem 0;border-bottom:1px solid var(--rule);}
+.profile-photo{width:100%;border-radius:3px;aspect-ratio:3/4;object-fit:cover;object-position:center top;}
+@media(max-width:640px){.profile-grid{grid-template-columns:1fr;}.profile-photo{max-width:200px;}}
+
+/* CREDS GRID */
+.creds-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:1.5rem 0;}
+.cred-box{background:rgba(255,255,255,.03);border:1px solid var(--rule);padding:1rem 1.2rem;border-radius:2px;}
+.cred-box .label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--cream3);margin-bottom:.3rem;}
+.cred-box .value{font-size:.9rem;color:var(--cream);font-weight:500;}
+@media(max-width:560px){.creds-grid{grid-template-columns:1fr;}}
+
+/* NOTICE BOX */
+.notice{background:rgba(255,255,255,.03);border-left:3px solid rgba(201,138,42,.5);padding:1.1rem 1.3rem;border-radius:0 2px 2px 0;font-size:.82rem;color:var(--cream3);line-height:1.85;margin:1.5rem 0;}
+.notice strong{color:var(--cream2);}
+
+/* CONTACT ROW */
+.contact-row{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;}
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;background:var(--wa);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;padding:.8rem 1.6rem;border-radius:50px;text-decoration:none;transition:all .3s;}
+.btn-wa:hover{background:#1ebe5d;color:#fff;}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;background:transparent;border:1px solid rgba(201,138,42,.4);color:var(--gold);font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding:.8rem 1.6rem;border-radius:2px;text-decoration:none;transition:all .3s;}
+.btn-outline:hover{background:var(--gold);color:#fff;}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--rule);padding:2rem 0;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-bottom p{font-size:.7rem;color:var(--cream3);}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.footer-links a{font-size:.68rem;color:var(--cream3);text-decoration:none;letter-spacing:.5px;}
+.footer-links a:hover{color:var(--gold);}
+.ren-bar{background:rgba(255,255,255,.03);border-top:1px solid var(--rule);color:var(--cream3);text-align:center;font-size:.62rem;letter-spacing:1.8px;text-transform:uppercase;padding:.55rem 1rem;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-mark">
+    <img src="business%20logo.png" alt="Johor Bahru Properties HUB">
+    <div class="nav-brand">JB Properties HUB<span>Joey Koh · REN 77548</span></div>
+  </a>
+  <a href="index.html" class="nav-back"><i class="bi bi-arrow-left"></i> Back to Main Page</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="wrap">
+    <div class="eyebrow">Agent Profile</div>
+    <h1>Joey Koh — <em>Licensed Property Consultant</em></h1>
+    <p>REN 77548 · GT Nelson Realty Sdn Bhd E(1)1836 · Johor Bahru New Launch Specialist</p>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <!-- STANDARD IDENTITY CARD (SOP §2) -->
+    <div class="identity-card">
+      <h2>Landing Page Owner / Advertiser Identity</h2>
+      <div class="id-row">
+        <div class="id-item">
+          <div class="id-label">Full Name</div>
+          <div class="id-value">Joey Koh</div>
+        </div>
+        <div class="id-item">
+          <div class="id-label">Registered Real Estate Negotiator</div>
+          <div class="id-value">REN 77548</div>
+        </div>
+        <div class="id-item">
+          <div class="id-label">Operating Under</div>
+          <div class="id-value">GT Nelson Realty Sdn Bhd</div>
+        </div>
+        <div class="id-item">
+          <div class="id-label">Agency License</div>
+          <div class="id-value">E(1)1836</div>
+        </div>
+        <div class="id-item">
+          <div class="id-label">Service Role</div>
+          <div class="id-value">Residential Property Marketing &amp; Consultation</div>
+        </div>
+        <div class="id-item">
+          <div class="id-label">WhatsApp / Phone</div>
+          <div class="id-value"><a href="tel:+60125686285" style="color:var(--cream);text-decoration:none;">+6012-5686285</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="profile-grid">
+      <div>
+        <img src="https://assets.cdn.filesafe.space/ysVC1W0Hqzs5FWlazBaN/media/6a4e0339adefd85d72ad8244.jpg" alt="Joey Koh — Licensed Real Estate Negotiator REN 77548 Johor Bahru" class="profile-photo">
+      </div>
+      <div>
+        <div class="content-section" style="padding-top:0;border:none;">
+          <h3>About Joey Koh</h3>
+          <p>Joey Koh is a licensed Real Estate Negotiator (REN 77548) registered under GT Nelson Realty Sdn Bhd — specialising in Johor Bahru's new launch residential property market, with a particular focus on the CIQ corridor, Iskandar Puteri, and investment-grade developments.</p>
+          <p>With a client base spanning Singapore-based investors, expatriates, and first-time Malaysian buyers, Joey provides end-to-end guidance from project selection and developer briefings, through to loan facilitation, legal conveyancing coordination, and post-purchase rental management.</p>
+          <p>Fluent in English, Mandarin, and Bahasa Malaysia, Joey is equipped to serve buyers across language backgrounds and work with cross-border buyers navigating the Malaysia-Singapore property corridor.</p>
+        </div>
+
+        <div class="creds-grid">
+          <div class="cred-box"><div class="label">License</div><div class="value">REN No. 77548</div></div>
+          <div class="cred-box"><div class="label">Agency</div><div class="value">GT Nelson Realty Sdn Bhd</div></div>
+          <div class="cred-box"><div class="label">Agency License</div><div class="value">E(1)1836</div></div>
+          <div class="cred-box"><div class="label">SSM Reg. No.</div><div class="value">201801005039 (1267053-H)</div></div>
+          <div class="cred-box"><div class="label">Specialisation</div><div class="value">CIQ Corridor · New Launch JB</div></div>
+          <div class="cred-box"><div class="label">Languages</div><div class="value">English · Mandarin · BM</div></div>
+        </div>
+
+        <div class="contact-row">
+          <a href="https://api.whatsapp.com/send?phone=60125686285&text=Hi%20Joey%2C%20I%27d%20like%20to%20know%20more%20about%20JB%20properties." target="_blank" class="btn-wa"><i class="bi bi-whatsapp"></i> WhatsApp Joey</a>
+          <a href="https://lpeph.gov.my/search-listing" target="_blank" class="btn-outline">Verify REN 77548 →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AGENCY INFO (SOP §4 — Developer Relationship) -->
+    <div class="content-section">
+      <h3>Agency &amp; Developer Relationship</h3>
+      <p>Joey Koh operates as a licensed Real Estate Negotiator under <strong>GT Nelson Realty Sdn Bhd (E(1)1836)</strong> — a registered estate agency in Malaysia. GT Nelson Realty holds agency agreements with property developers to market their projects to buyers.</p>
+      <p>Joey Koh's role is to <strong>market, present and facilitate enquiries</strong> for new launch property projects on behalf of developers, and to provide independent buyer consultation and guidance throughout the purchase process.</p>
+      <div class="notice">
+        <strong>Important:</strong> Joey Koh does not own, develop, construct, or act as the principal seller for any of the properties marketed on this website or on johorbahru-properties.com. All sales contracts, booking arrangements, developer warranties, and construction obligations remain the responsibility of the respective property developer. The authorization to market projects rests between the developer and GT Nelson Realty Sdn Bhd, not personally with Joey Koh.
+      </div>
+    </div>
+
+    <!-- ROLE & SERVICE (SOP §5 & §14) -->
+    <div class="content-section">
+      <h3>What Joey Koh Does for Buyers</h3>
+      <p>As a buyer's first point of contact, Joey provides:</p>
+      <ul style="font-size:.88rem;color:var(--cream3);line-height:2;padding-left:1.3rem;margin:.5rem 0 1rem;">
+        <li>Project briefings — layout, pricing, unit selection, and floor plan advice</li>
+        <li>Investment analysis — CIQ distance, rental yield context, and comparative value</li>
+        <li>Financing guidance — connecting buyers to bank loan advisors and legal panels</li>
+        <li>Booking coordination — facilitating the developer's official booking process</li>
+        <li>Post-purchase support — tenancy sourcing and property management referrals</li>
+      </ul>
+      <p>All actual booking, sale and purchase agreements, and development warranties are issued by and remain the responsibility of the respective developer. Joey Koh facilitates the buyer-developer relationship but does not guarantee unit availability, loan approval, or project completion timelines.</p>
+    </div>
+
+    <!-- CONTACT (SOP §6) -->
+    <div class="content-section">
+      <h3>Contact Information</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.8rem 0 1.5rem;">
+        <div class="cred-box">
+          <div class="label">Name</div>
+          <div class="value">Joey Koh</div>
+        </div>
+        <div class="cred-box">
+          <div class="label">REN Number</div>
+          <div class="value">77548</div>
+        </div>
+        <div class="cred-box">
+          <div class="label">Agency</div>
+          <div class="value">GT Nelson Realty Sdn Bhd E(1)1836</div>
+        </div>
+        <div class="cred-box">
+          <div class="label">Phone / WhatsApp</div>
+          <div class="value"><a href="tel:+60125686285" style="color:var(--cream);text-decoration:none;">+6012-5686285</a></div>
+        </div>
+      </div>
+      <div class="contact-row">
+        <a href="https://api.whatsapp.com/send?phone=60125686285&text=Hi%20Joey%2C%20I%20have%20an%20enquiry." target="_blank" class="btn-wa"><i class="bi bi-whatsapp"></i> WhatsApp Now</a>
+        <a href="index.html#register" class="btn-outline">Send Enquiry Form →</a>
+      </div>
+    </div>
+
+    <!-- DISCLAIMER (SOP §7) -->
+    <div class="content-section" id="disclaimer">
+      <h3>Disclaimer</h3>
+      <p>The website <strong>johorbahru-properties.com</strong> is independently operated by <strong>Joey Koh (REN 77548)</strong> under <strong>GT Nelson Realty Sdn Bhd E(1)1836</strong>. It is <strong>not</strong> the official website of any property developer and does not represent, or act on behalf of, any developer as its official marketing arm unless explicitly stated and supported by documentation.</p>
+      <p>All project information, pricing, availability, promotions, unit types, sizes, facilities and specifications published on this website are indicative only and may change without notice. This website does not constitute a legal offer, binding contract, or representation. Customers are advised to verify all current details directly with the relevant developer or authorized sales channel before making any purchasing decision.</p>
+      <p>Price claims, rental yield estimates and capital appreciation figures are based on historical data and publicly available information at the time of publication. They do not constitute a guarantee of future investment performance. Independent financial and legal due diligence is strongly advised.</p>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Joey Koh (REN 77548) · GT Nelson Realty Sdn Bhd E(1)1836 · johorbahru-properties.com</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#disclaimer">Disclaimer</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-use.html">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="ren-bar">REN 77548 · Joey Koh · GT Nelson Realty Sdn Bhd E(1)1836</div>
+
+</body>
+</html>

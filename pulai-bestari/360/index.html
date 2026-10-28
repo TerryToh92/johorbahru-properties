@@ -46,81 +46,84 @@
   text-transform: uppercase;
 }
 
-/* Override hotspot styles for clarity */
-.info-hotspot {
-  background: rgba(255,255,255,0) !important;
-}
-.info-hotspot-header {
-  background: #101928 !important;
+/* ===== HOTSPOT: always-visible label chips ===== */
+
+/* Header box — force fully expanded, never the small circle */
+.info-hotspot .info-hotspot-header,
+.desktop .info-hotspot .info-hotspot-header,
+.mobile .info-hotspot .info-hotspot-header,
+.desktop.no-touch .info-hotspot .info-hotspot-header {
+  width: 220px !important;
+  height: 36px !important;
   border-radius: 4px !important;
-  padding: 8px 12px !important;
+  background: #101928 !important;
   border: 2px solid #c07d1a !important;
-  box-shadow: 0 4px 20px rgba(0,0,0,.6) !important;
-  min-width: 160px;
-}
-.info-hotspot-icon-wrapper {
-  background: #c07d1a !important;
-  border-radius: 3px !important;
-  width: 28px !important;
-  height: 28px !important;
-}
-.info-hotspot-title-wrapper {
-  padding: 0 10px !important;
-}
-.info-hotspot-title {
-  font-family: Georgia, serif !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  letter-spacing: .3px !important;
-  line-height: 1.2 !important;
-}
-.info-hotspot-close-wrapper {
-  background: rgba(255,255,255,.15) !important;
-  border-radius: 3px !important;
-}
-.info-hotspot-text {
-  background: #1c2e46 !important;
-  color: rgba(255,255,255,.85) !important;
-  font-family: Arial, sans-serif !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  padding: 8px 12px !important;
-  border-left: 3px solid #c07d1a !important;
-  border-radius: 0 0 4px 4px !important;
-}
-/* Keep icon "i" marker visible */
-.info-hotspot-icon {
-  width: 18px !important;
-  height: 18px !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,.55) !important;
+  transition: none !important;
+  padding: 0 !important;
+  opacity: 1 !important;
 }
 
-/* Always show hotspot title labels — no click/hover required */
+/* Gold "i" icon chip */
+.info-hotspot .info-hotspot-icon-wrapper,
+.desktop .info-hotspot .info-hotspot-icon-wrapper,
+.mobile .info-hotspot .info-hotspot-icon-wrapper {
+  width: 32px !important;
+  height: 32px !important;
+  background: #c07d1a !important;
+  border-radius: 3px !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+}
+.info-hotspot .info-hotspot-icon {
+  width: 18px !important;
+  height: 18px !important;
+  margin: 7px !important;
+}
+
+/* Title wrapper — override width:0;overflow:hidden with correct specificity */
 .info-hotspot .info-hotspot-title-wrapper,
-.desktop .info-hotspot .info-hotspot-title-wrapper {
-  display: block !important;
-  width: auto !important;
-  max-width: 200px !important;
-  opacity: 1 !important;
+.desktop .info-hotspot .info-hotspot-title-wrapper,
+.mobile .info-hotspot .info-hotspot-title-wrapper,
+.desktop.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper,
+.desktop .info-hotspot.visible .info-hotspot-title-wrapper {
+  width: 185px !important;
+  height: 36px !important;
+  padding: 0 8px 0 36px !important;
   overflow: visible !important;
-  -webkit-transition: none !important;
   transition: none !important;
 }
 .info-hotspot .info-hotspot-title-wrapper:before {
   display: none !important;
 }
-/* Hide close button — labels are always open */
-.info-hotspot .info-hotspot-close-wrapper {
-  display: none !important;
+
+/* Title text */
+.info-hotspot .info-hotspot-title {
+  font-family: Georgia, serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  letter-spacing: .3px !important;
+  line-height: 36px !important;
+  white-space: nowrap !important;
+  display: block !important;
+  vertical-align: baseline !important;
 }
-/* Hide the expandable text body — title only */
+
+/* Hide close button */
+.info-hotspot .info-hotspot-close-wrapper,
+.desktop .info-hotspot.visible .info-hotspot-close-wrapper {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* Hide text body — title chip only */
 .info-hotspot .info-hotspot-text,
 .desktop .info-hotspot.visible .info-hotspot-text {
   display: none !important;
-}
-/* Keep header always opaque */
-.info-hotspot .info-hotspot-header {
-  opacity: 1 !important;
+  visibility: hidden !important;
+  transform: none !important;
 }
 </style>
 </head>
@@ -189,32 +192,17 @@
 <script src="data.js"></script>
 <script src="index.js"></script>
 <script>
-// Force all info hotspot labels always visible after viewer loads
-(function forceHotspotLabels() {
-  var busy = false;
-  function showAll() {
-    if (busy) return;
-    busy = true;
-    var hotspots = document.querySelectorAll('.info-hotspot');
-    hotspots.forEach(function(hs) {
+// Add .visible to all hotspots so Marzipano's opacity rules fire
+window.addEventListener('load', function() {
+  function markVisible() {
+    document.querySelectorAll('.info-hotspot').forEach(function(hs) {
       hs.classList.add('visible');
-      var tw = hs.querySelector('.info-hotspot-title-wrapper');
-      if (tw && tw.style.display !== 'block') { tw.style.cssText += ';display:block!important;opacity:1!important;width:auto!important;max-width:220px!important;overflow:visible!important;'; }
-      var tb = hs.querySelector('.info-hotspot-text');
-      if (tb && tb.style.display !== 'none') tb.style.display = 'none';
-      var cb = hs.querySelector('.info-hotspot-close-wrapper');
-      if (cb && cb.style.display !== 'none') cb.style.display = 'none';
     });
-    busy = false;
   }
-  window.addEventListener('load', function() {
-    showAll();
-    setTimeout(showAll, 600);
-    setTimeout(showAll, 1800);
-    // Re-apply after any click (Marzipano may toggle .visible)
-    document.addEventListener('click', function() { setTimeout(showAll, 80); });
-  });
-})();
+  markVisible();
+  setTimeout(markVisible, 800);
+  setTimeout(markVisible, 2000);
+});
 </script>
 
 </body>

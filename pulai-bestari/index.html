@@ -336,10 +336,7 @@ footer{background:#0a0806;padding:2.5rem clamp(1.2rem,5vw,4rem);}
       <!-- Double Storey Terrace -->
       <div class="type-card reveal" id="double-storey">
         <div class="type-card-img">
-          <div class="type-card-img-placeholder">
-            <i class="bi bi-house-door-fill"></i>
-            <span>Double Storey Terrace</span>
-          </div>
+          <img src="double-storey.webp" alt="Pulai Bestari P4 double storey terrace exterior render, Taman Universiti Skudai" loading="lazy">
           <span class="type-badge">P4 · Terrace</span>
         </div>
         <div class="type-card-body">
@@ -366,10 +363,7 @@ footer{background:#0a0806;padding:2.5rem clamp(1.2rem,5vw,4rem);}
       <!-- Cluster Home -->
       <div class="type-card reveal" id="cluster">
         <div class="type-card-img">
-          <div class="type-card-img-placeholder">
-            <i class="bi bi-houses-fill"></i>
-            <span>Cluster Home</span>
-          </div>
+          <img src="cluster.webp" alt="Pulai Bestari P2A cluster home exterior render, Taman Universiti Skudai" loading="lazy">
           <span class="type-badge">P2A · Cluster</span>
         </div>
         <div class="type-card-body">
@@ -408,10 +402,7 @@ footer{background:#0a0806;padding:2.5rem clamp(1.2rem,5vw,4rem);}
 
       <div class="fp-card reveal">
         <div class="fp-card-img">
-          <div class="fp-card-img-placeholder">
-            <i class="bi bi-file-earmark-image"></i>
-            <span>Floor Plan Coming Soon</span>
-          </div>
+          <img src="double-storey-floorplan.webp" alt="Pulai Bestari P4 double storey terrace floor plan, ground floor and first floor layout" loading="lazy">
         </div>
         <div class="fp-card-body">
           <div class="fp-type">P4 · Double Storey Terrace</div>
@@ -481,18 +472,8 @@ footer{background:#0a0806;padding:2.5rem clamp(1.2rem,5vw,4rem);}
           </div>
         </div>
       </div>
-      <div class="about-visual reveal">
-        <i class="bi bi-buildings"></i>
-        <strong>KSL Holdings Berhad</strong>
-        <span>Developer · Bursa: KSL</span>
-        <div class="about-visual-chips">
-          <span class="about-visual-chip">Publicly Listed</span>
-          <span class="about-visual-chip">Johor Bahru</span>
-          <span class="about-visual-chip">Township Developer</span>
-        </div>
-        <div class="about-visual-chips" style="margin-top:.5rem;">
-          <span class="about-visual-chip">Dev Lic: 3390/03/2029/0030(A)</span>
-        </div>
+      <div class="reveal" style="border-radius:4px;overflow:hidden;box-shadow:0 8px 40px rgba(192,125,26,.14);border:1px solid var(--rule);">
+        <img src="ksl-award.png" alt="KSL Holdings Berhad — Malaysia Developer Awards Top 10 for market cap RM1 billion and above" style="width:100%;height:auto;display:block;">
       </div>
     </div>
   </div>
@@ -533,13 +514,151 @@ footer{background:#0a0806;padding:2.5rem clamp(1.2rem,5vw,4rem);}
           <div class="loc-item reveal"><i class="bi bi-bus-front-fill"></i> <span><strong>Johor Bahru city centre</strong> — approx. 20–25 min</span></div>
         </div>
       </div>
-      <div class="map-frame reveal">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15951.124569!2d103.6358!3d1.5604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da721a!2sTaman%20Universiti%2C%20Skudai!5e0!3m2!1sen!2smy!4v1"
-          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pulai Bestari location map, Taman Universiti Skudai">
-        </iframe>
+      <div class="reveal" style="border-radius:4px;overflow:hidden;border:1px solid var(--rule);box-shadow:0 4px 24px rgba(192,125,26,.1);">
+        <svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+          <defs>
+            <style>
+              .map-bg{fill:#e8e0d0;}
+              .map-road-major{fill:none;stroke:#fff;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;}
+              .map-road-major-border{fill:none;stroke:#c8b48a;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;}
+              .map-road-minor{fill:none;stroke:#fff;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;}
+              .map-road-minor-border{fill:none;stroke:#c8b48a;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;}
+              .map-highway{fill:none;stroke:#e8c36a;stroke-width:6;stroke-linecap:round;}
+              .map-highway-border{fill:none;stroke:#b8893a;stroke-width:9;stroke-linecap:round;}
+              .map-green{fill:#c8dab0;}
+              .map-water{fill:#b8d4e8;}
+              .map-block{fill:#d8cfc0;stroke:#c8b89a;stroke-width:.5;}
+              .map-label-road{font-family:Inter,Arial,sans-serif;font-size:7px;font-weight:700;fill:#8a6a2a;letter-spacing:.5px;text-transform:uppercase;}
+              .map-label-place{font-family:Inter,Arial,sans-serif;font-size:7.5px;font-weight:600;fill:#4a3a20;}
+              .map-label-highway{font-family:Inter,Arial,sans-serif;font-size:6.5px;font-weight:800;fill:#8a6200;letter-spacing:.5px;}
+              .map-pin-pulse{fill:rgba(192,125,26,.15);}
+              .map-pin-ring{fill:none;stroke:#c07d1a;stroke-width:1.5;}
+              .map-pin-dot{fill:#c07d1a;}
+              .map-pin-label{font-family:Inter,Arial,sans-serif;font-size:8px;font-weight:800;fill:#c07d1a;letter-spacing:.3px;}
+              .map-compass-bg{fill:#fff;stroke:#c8b48a;stroke-width:1;}
+            </style>
+            <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="rgba(0,0,0,.15)"/>
+            </filter>
+          </defs>
+
+          <!-- Background -->
+          <rect width="480" height="340" class="map-bg"/>
+
+          <!-- Green areas (parks/UTM campus) -->
+          <rect x="20" y="40" width="100" height="120" rx="4" class="map-green" opacity=".7"/>
+          <rect x="30" y="50" width="80" height="100" rx="3" class="map-green"/>
+          <text x="70" y="105" text-anchor="middle" class="map-label-place" font-size="7" opacity=".8">UTM Campus</text>
+
+          <rect x="340" y="200" width="80" height="60" rx="4" class="map-green" opacity=".6"/>
+          <rect x="380" y="50" width="70" height="80" rx="4" class="map-green" opacity=".5"/>
+
+          <!-- Building blocks -->
+          <rect x="140" y="60" width="30" height="20" rx="2" class="map-block"/>
+          <rect x="180" y="55" width="35" height="25" rx="2" class="map-block"/>
+          <rect x="230" y="60" width="28" height="18" rx="2" class="map-block"/>
+          <rect x="270" y="58" width="32" height="22" rx="2" class="map-block"/>
+
+          <rect x="140" y="140" width="28" height="20" rx="2" class="map-block"/>
+          <rect x="180" y="145" width="32" height="18" rx="2" class="map-block"/>
+          <rect x="240" y="140" width="30" height="22" rx="2" class="map-block"/>
+          <rect x="290" y="142" width="28" height="20" rx="2" class="map-block"/>
+
+          <rect x="150" y="230" width="35" height="22" rx="2" class="map-block"/>
+          <rect x="200" y="235" width="28" height="18" rx="2" class="map-block"/>
+          <rect x="250" y="228" width="30" height="20" rx="2" class="map-block"/>
+          <rect x="330" y="140" width="40" height="28" rx="2" class="map-block"/>
+          <rect x="390" y="145" width="35" height="24" rx="2" class="map-block"/>
+
+          <!-- North-South Expressway (NSE) - diagonal major highway on left -->
+          <polyline points="60,0 90,120 100,200 90,340" class="map-highway-border"/>
+          <polyline points="60,0 90,120 100,200 90,340" class="map-highway"/>
+          <text transform="translate(72,80) rotate(75)" class="map-label-highway">NSE Highway</text>
+
+          <!-- Skudai Highway - horizontal across middle -->
+          <polyline points="0,180 120,175 240,178 360,172 480,168" class="map-highway-border"/>
+          <polyline points="0,180 120,175 240,178 360,172 480,168" class="map-highway"/>
+          <text x="170" y="167" class="map-label-highway">Skudai Highway</text>
+
+          <!-- Major roads borders first -->
+          <polyline points="130,0 130,340" class="map-road-major-border"/>
+          <polyline points="0,100 480,95" class="map-road-major-border"/>
+          <polyline points="320,0 320,340" class="map-road-major-border"/>
+          <polyline points="0,280 480,278" class="map-road-major-border"/>
+
+          <!-- Major roads -->
+          <polyline points="130,0 130,340" class="map-road-major"/>
+          <polyline points="0,100 480,95" class="map-road-major"/>
+          <polyline points="320,0 320,340" class="map-road-major"/>
+          <polyline points="0,280 480,278" class="map-road-major"/>
+
+          <!-- Minor roads -->
+          <polyline points="130,95 320,95" class="map-road-minor-border"/>
+          <polyline points="130,95 320,95" class="map-road-minor"/>
+          <polyline points="220,95 220,278" class="map-road-minor-border"/>
+          <polyline points="220,95 220,278" class="map-road-minor"/>
+          <polyline points="130,200 320,200" class="map-road-minor-border"/>
+          <polyline points="130,200 320,200" class="map-road-minor"/>
+
+          <!-- Road labels -->
+          <text transform="translate(138,50) rotate(90)" class="map-label-road">Jln Skudai</text>
+          <text x="155" y="88" class="map-label-road">Jln Universiti</text>
+          <text transform="translate(328,50) rotate(90)" class="map-label-road">Jln Bestari</text>
+
+          <!-- Nearby landmarks -->
+          <rect x="350" y="108" width="55" height="22" rx="3" fill="#deb96a" opacity=".5"/>
+          <text x="377" y="123" text-anchor="middle" class="map-label-place" font-size="6.5">AEON Bukit Indah</text>
+
+          <rect x="358" y="240" width="50" height="20" rx="3" fill="#c8d8b0" opacity=".6"/>
+          <text x="383" y="254" text-anchor="middle" class="map-label-place" font-size="6.5">Sutera Mall</text>
+
+          <!-- Pulai Bestari Pin -->
+          <!-- Pulse rings -->
+          <circle cx="228" cy="195" r="28" class="map-pin-pulse" opacity=".4"/>
+          <circle cx="228" cy="195" r="20" class="map-pin-pulse" opacity=".5"/>
+          <!-- Ring -->
+          <circle cx="228" cy="195" r="13" class="map-pin-ring"/>
+          <!-- Dot -->
+          <circle cx="228" cy="195" r="6" class="map-pin-dot"/>
+
+          <!-- Label box -->
+          <rect x="148" y="210" width="108" height="34" rx="3" fill="#fff" filter="url(#shadow)"/>
+          <rect x="148" y="210" width="108" height="4" rx="2" fill="#c07d1a"/>
+          <text x="202" y="228" text-anchor="middle" class="map-pin-label">Pulai Bestari</text>
+          <text x="202" y="239" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="6.5" fill="#8a6a2a">Taman Universiti, Skudai</text>
+
+          <!-- Compass -->
+          <circle cx="446" cy="38" r="18" class="map-compass-bg" filter="url(#shadow)"/>
+          <text x="446" y="24" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="9" font-weight="900" fill="#c07d1a">N</text>
+          <polygon points="446,28 443,44 446,41 449,44" fill="#c07d1a"/>
+          <polygon points="446,48 443,32 446,35 449,32" fill="#c8b48a"/>
+          <text x="446" y="56" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="7" fill="#8a7a5a">S</text>
+
+          <!-- Scale bar -->
+          <line x1="20" y1="320" x2="80" y2="320" stroke="#8a6a2a" stroke-width="1.5"/>
+          <line x1="20" y1="315" x2="20" y2="325" stroke="#8a6a2a" stroke-width="1.5"/>
+          <line x1="80" y1="315" x2="80" y2="325" stroke="#8a6a2a" stroke-width="1.5"/>
+          <text x="50" y="333" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="6.5" fill="#8a6a2a">approx. 1 km</text>
+
+          <!-- Map credit -->
+          <text x="460" y="336" text-anchor="end" font-family="Inter,Arial,sans-serif" font-size="5.5" fill="#b0a090">For reference only</text>
+        </svg>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 360 TOUR -->
+<section class="section section-dark" id="tour360">
+  <div class="wrap">
+    <div class="section-label reveal" style="color:rgba(255,205,90,.85);">Aerial 360° Tour</div>
+    <h2 class="section-title reveal" style="color:#fff;">Explore the Site from <em>Above</em></h2>
+    <div class="divider reveal"></div>
+    <p class="section-sub reveal" style="color:rgba(255,255,255,.55);">Drag to explore the Pulai Bestari site in full 360°. Click on any label pin to see details about each phase.</p>
+    <div class="reveal" style="margin-top:1.8rem;border-radius:4px;overflow:hidden;border:2px solid rgba(192,125,26,.3);box-shadow:0 8px 40px rgba(0,0,0,.4);position:relative;">
+      <iframe src="360/index.html" style="width:100%;height:520px;border:none;display:block;" title="Pulai Bestari Aerial 360° Tour" allowfullscreen loading="lazy"></iframe>
+    </div>
+    <p style="text-align:center;margin-top:1rem;font-size:.78rem;color:rgba(255,255,255,.3);">Drag to pan · Scroll to zoom · Click pins for details · Best viewed full screen</p>
   </div>
 </section>
 

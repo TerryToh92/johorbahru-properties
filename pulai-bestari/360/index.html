@@ -191,36 +191,28 @@
 <script>
 // Force all info hotspot labels always visible after viewer loads
 (function forceHotspotLabels() {
+  var busy = false;
   function showAll() {
+    if (busy) return;
+    busy = true;
     var hotspots = document.querySelectorAll('.info-hotspot');
     hotspots.forEach(function(hs) {
       hs.classList.add('visible');
-      // Remove any inline display:none on title-wrapper
       var tw = hs.querySelector('.info-hotspot-title-wrapper');
-      if (tw) { tw.style.display = 'block'; tw.style.opacity = '1'; tw.style.width = 'auto'; tw.style.maxWidth = '220px'; tw.style.overflow = 'visible'; }
-      // Keep text body hidden
+      if (tw && tw.style.display !== 'block') { tw.style.cssText += ';display:block!important;opacity:1!important;width:auto!important;max-width:220px!important;overflow:visible!important;'; }
       var tb = hs.querySelector('.info-hotspot-text');
-      if (tb) tb.style.display = 'none';
-      // Hide close button
+      if (tb && tb.style.display !== 'none') tb.style.display = 'none';
       var cb = hs.querySelector('.info-hotspot-close-wrapper');
-      if (cb) cb.style.display = 'none';
+      if (cb && cb.style.display !== 'none') cb.style.display = 'none';
     });
+    busy = false;
   }
-  // Run after load and keep running in case Marzipano re-renders
   window.addEventListener('load', function() {
     showAll();
-    setTimeout(showAll, 500);
-    setTimeout(showAll, 1500);
-    // Intercept any click that hides labels — re-show after click
-    document.addEventListener('click', function() { setTimeout(showAll, 50); }, true);
-    // MutationObserver to re-show if Marzipano toggles visibility
-    var obs = new MutationObserver(function(muts) {
-      var needs = muts.some(function(m) {
-        return m.target && m.target.classList && (m.target.classList.contains('info-hotspot') || m.target.classList.contains('info-hotspot-title-wrapper'));
-      });
-      if (needs) showAll();
-    });
-    obs.observe(document.getElementById('pano') || document.body, { subtree: true, attributes: true, attributeFilter: ['class', 'style'] });
+    setTimeout(showAll, 600);
+    setTimeout(showAll, 1800);
+    // Re-apply after any click (Marzipano may toggle .visible)
+    document.addEventListener('click', function() { setTimeout(showAll, 80); });
   });
 })();
 </script>

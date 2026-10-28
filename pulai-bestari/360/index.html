@@ -188,6 +188,42 @@
 <script src="vendor/marzipano.js"></script>
 <script src="data.js"></script>
 <script src="index.js"></script>
+<script>
+// Force all info hotspot labels always visible after viewer loads
+(function forceHotspotLabels() {
+  function showAll() {
+    var hotspots = document.querySelectorAll('.info-hotspot');
+    hotspots.forEach(function(hs) {
+      hs.classList.add('visible');
+      // Remove any inline display:none on title-wrapper
+      var tw = hs.querySelector('.info-hotspot-title-wrapper');
+      if (tw) { tw.style.display = 'block'; tw.style.opacity = '1'; tw.style.width = 'auto'; tw.style.maxWidth = '220px'; tw.style.overflow = 'visible'; }
+      // Keep text body hidden
+      var tb = hs.querySelector('.info-hotspot-text');
+      if (tb) tb.style.display = 'none';
+      // Hide close button
+      var cb = hs.querySelector('.info-hotspot-close-wrapper');
+      if (cb) cb.style.display = 'none';
+    });
+  }
+  // Run after load and keep running in case Marzipano re-renders
+  window.addEventListener('load', function() {
+    showAll();
+    setTimeout(showAll, 500);
+    setTimeout(showAll, 1500);
+    // Intercept any click that hides labels — re-show after click
+    document.addEventListener('click', function() { setTimeout(showAll, 50); }, true);
+    // MutationObserver to re-show if Marzipano toggles visibility
+    var obs = new MutationObserver(function(muts) {
+      var needs = muts.some(function(m) {
+        return m.target && m.target.classList && (m.target.classList.contains('info-hotspot') || m.target.classList.contains('info-hotspot-title-wrapper'));
+      });
+      if (needs) showAll();
+    });
+    obs.observe(document.getElementById('pano') || document.body, { subtree: true, attributes: true, attributeFilter: ['class', 'style'] });
+  });
+})();
+</script>
 
 </body>
 </html>

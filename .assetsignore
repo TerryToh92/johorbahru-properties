@@ -1,0 +1,5 @@
+.git
+.git/**
+wrangler.toml
+wrangler.jsonc
+.gitignore

@@ -1,143 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Riveria Garden @ Wawari — 360° Virtual Tour</title>
+<title>Project Title</title>
 <meta charset="utf-8">
 <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
 <style> @-ms-viewport { width: device-width; } </style>
 <link rel="stylesheet" href="vendor/reset.min.css">
 <link rel="stylesheet" href="style.css">
-<style>
-/* Business logo watermark */
-#logo-watermark {
-  position: fixed;
-  top: 14px;
-  left: 14px;
-  z-index: 200;
-  background: #ffffff;
-  border-radius: 6px;
-  padding: 6px 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.25);
-}
-#logo-watermark img {
-  height: 36px;
-  width: auto;
-  display: block;
-}
-#logo-watermark .logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-#logo-watermark .logo-text strong {
-  font-family: Georgia, serif;
-  font-size: 12px;
-  color: #101928;
-  font-weight: 700;
-}
-#logo-watermark .logo-text span {
-  font-family: Arial, sans-serif;
-  font-size: 9px;
-  color: #7090b8;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* ===== HOTSPOT: always-visible label — no background ===== */
-
-/* Header box: fully transparent, no border, no shadow */
-.info-hotspot .info-hotspot-header,
-.desktop .info-hotspot .info-hotspot-header,
-.mobile .info-hotspot .info-hotspot-header,
-.desktop.no-touch .info-hotspot .info-hotspot-header {
-  width: auto !important;
-  height: auto !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  opacity: 1 !important;
-  transition: none !important;
-}
-
-/* Hide the "i" icon */
-.info-hotspot .info-hotspot-icon-wrapper,
-.desktop .info-hotspot .info-hotspot-icon-wrapper,
-.mobile .info-hotspot .info-hotspot-icon-wrapper {
-  display: none !important;
-}
-
-/* Title wrapper — always expanded */
-.info-hotspot .info-hotspot-title-wrapper,
-.desktop .info-hotspot .info-hotspot-title-wrapper,
-.mobile .info-hotspot .info-hotspot-title-wrapper,
-.desktop.no-touch .info-hotspot .info-hotspot-header:hover .info-hotspot-title-wrapper,
-.desktop .info-hotspot.visible .info-hotspot-title-wrapper {
-  width: auto !important;
-  height: auto !important;
-  padding: 0 !important;
-  overflow: visible !important;
-  transition: none !important;
-}
-.info-hotspot .info-hotspot-title-wrapper:before {
-  display: none !important;
-}
-
-/* Title text — large, white, text-shadow only */
-.info-hotspot .info-hotspot-title {
-  font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 15px !important;
-  font-weight: 800 !important;
-  color: #ffffff !important;
-  text-shadow:
-    0 0 6px rgba(0,0,0,1),
-    0 1px 4px rgba(0,0,0,1),
-    0 0 14px rgba(0,0,0,.85) !important;
-  letter-spacing: .6px !important;
-  line-height: 1.3 !important;
-  white-space: nowrap !important;
-  display: block !important;
-  vertical-align: baseline !important;
-}
-
-/* Hide close button */
-.info-hotspot .info-hotspot-close-wrapper,
-.desktop .info-hotspot.visible .info-hotspot-close-wrapper {
-  display: none !important;
-  visibility: hidden !important;
-}
-
-/* Hide body text panel */
-.info-hotspot .info-hotspot-text,
-.desktop .info-hotspot.visible .info-hotspot-text {
-  display: none !important;
-  visibility: hidden !important;
-  transform: none !important;
-}
-</style>
 </head>
 <body class="single-scene ">
 
 <div id="pano"></div>
 
-<!-- Business Logo -->
-<div id="logo-watermark">
-  <img src="../../business%20logo.png" alt="JB Properties HUB">
-  <div class="logo-text">
-    <strong>JB Properties HUB</strong>
-    <span>Joey Koh · REN 77548</span>
-  </div>
-</div>
-
 <div id="sceneList">
   <ul class="scenes">
-    <a href="javascript:void(0)" class="scene" data-id="0-riveria-garden">
-      <li class="text">Riveria Garden</li>
-    </a>
+
+      <a href="javascript:void(0)" class="scene" data-id="0-riveria-garden">
+        <li class="text">Riveria Garden</li>
+      </a>
+
   </ul>
 </div>
 
@@ -179,24 +60,12 @@
   <img class="icon" src="img/minus.png">
 </a>
 
-<script src="vendor/screenfull.min.js"></script>
-<script src="vendor/bowser.min.js"></script>
-<script src="vendor/marzipano.js"></script>
+<script src="vendor/screenfull.min.js" ></script>
+<script src="vendor/bowser.min.js" ></script>
+<script src="vendor/marzipano.js" ></script>
+
 <script src="data.js"></script>
 <script src="index.js"></script>
-<script>
-// Mark all hotspots visible so labels are always shown
-window.addEventListener('load', function() {
-  function markVisible() {
-    document.querySelectorAll('.info-hotspot').forEach(function(hs) {
-      hs.classList.add('visible');
-    });
-  }
-  markVisible();
-  setTimeout(markVisible, 800);
-  setTimeout(markVisible, 2000);
-});
-</script>
 
 </body>
 </html>

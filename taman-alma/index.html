@@ -97,6 +97,22 @@ img{max-width:100%;height:auto;}
 .btn-enquire{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:#25D366;color:#fff;font-size:.78rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;padding:.7rem 1.4rem;border-radius:3px;margin-top:auto;transition:background .2s;text-align:center;}
 .btn-enquire:hover{background:#1db954;color:#fff;}
 
+/* FLOOR PLANS */
+.fp-tabs{display:flex;gap:.5rem;margin-top:2rem;flex-wrap:wrap;}
+.fp-tab{background:none;border:1px solid var(--rule);padding:.5rem 1.2rem;font-size:.72rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--cream3);cursor:pointer;border-radius:2px;font-family:var(--sans);transition:all .2s;}
+.fp-tab.active{background:var(--gold);color:#fff;border-color:var(--gold);}
+.fp-panel{display:none;margin-top:1.8rem;}
+.fp-panel.active{display:block;}
+.fp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;}
+.fp-card{background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.06);}
+.fp-img{position:relative;background:var(--bg2);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.fp-img img{width:100%;height:100%;object-fit:contain;display:block;}
+.fp-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--cream3);font-size:.72rem;letter-spacing:1px;text-transform:uppercase;width:100%;height:100%;border:2px dashed var(--rule);}
+.fp-placeholder i{font-size:2rem;color:var(--rule);}
+.fp-info{padding:.9rem 1rem;}
+.fp-type{font-family:var(--serif);font-size:1.1rem;color:var(--cream);margin-bottom:.2rem;}
+.fp-meta{font-size:.75rem;color:var(--cream3);}
+
 /* HIGHLIGHTS */
 .highlights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:2.5rem;}
 .highlight-item{background:#fff;border-radius:6px;padding:1.4rem 1.2rem;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06);}
@@ -150,6 +166,7 @@ img{max-width:100%;height:auto;}
   <div class="nav-links">
     <a href="#top">Home</a>
     <a href="#projects">Projects</a>
+    <a href="#floorplans">Floor Plans</a>
     <a href="#location">Location</a>
     <a href="#faq">FAQ</a>
     <a href="https://api.whatsapp.com/send?phone=60125686285&text=Hi%20Joey%2C%20I%27m%20interested%20in%20Taman%20Alma%20KSL%20projects.%20Please%20share%20more%20details." target="_blank" class="nav-cta"><i class="bi bi-whatsapp"></i> WhatsApp</a>
@@ -246,6 +263,95 @@ img{max-width:100%;height:auto;}
 
     </div>
     <p style="margin-top:1.2rem;font-size:.72rem;color:var(--cream3);">* Prices, promotions and availability are subject to change by the developer without prior notice. Prices shown are indicative only.</p>
+  </div>
+</section>
+
+<!-- FLOOR PLANS -->
+<section class="section section-alt" id="floorplans">
+  <div class="wrap">
+    <div class="section-label reveal">Unit Layouts</div>
+    <h2 class="section-title reveal">Floor <em>Plans</em></h2>
+    <div class="divider reveal"></div>
+    <p class="section-sub reveal">Browse unit layouts by project. Contact Joey for the full brochure with detailed floor plan drawings.</p>
+
+    <div class="fp-tabs reveal">
+      <button class="fp-tab active" onclick="fpSwitch('ceros',this)">Ceros Residences</button>
+      <button class="fp-tab" onclick="fpSwitch('rosewood',this)">Alma Rosewood</button>
+    </div>
+
+    <!-- Ceros Residences layouts -->
+    <div class="fp-panel active" id="fp-ceros">
+      <div class="fp-grid">
+        <div class="fp-card reveal">
+          <div class="fp-img">
+            <img src="floorplan-ceros-studio.jpg" alt="Ceros Studio floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
+          </div>
+          <div class="fp-info">
+            <div class="fp-type">Studio</div>
+            <div class="fp-meta">1 Bath &nbsp;·&nbsp; from 506 sq ft</div>
+          </div>
+        </div>
+        <div class="fp-card reveal">
+          <div class="fp-img">
+            <img src="floorplan-ceros-1plus1.jpg" alt="Ceros 1+1 floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
+          </div>
+          <div class="fp-info">
+            <div class="fp-type">1+1 Bedroom</div>
+            <div class="fp-meta">1 Bath &nbsp;·&nbsp; Intermediate size</div>
+          </div>
+        </div>
+        <div class="fp-card reveal">
+          <div class="fp-img">
+            <img src="floorplan-ceros-2br.jpg" alt="Ceros 2 Bedroom floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
+          </div>
+          <div class="fp-info">
+            <div class="fp-type">2 Bedroom</div>
+            <div class="fp-meta">2 Bath &nbsp;·&nbsp; Mid range</div>
+          </div>
+        </div>
+        <div class="fp-card reveal">
+          <div class="fp-img">
+            <img src="floorplan-ceros-3br.jpg" alt="Ceros 3 Bedroom floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
+          </div>
+          <div class="fp-info">
+            <div class="fp-type">3 Bedroom</div>
+            <div class="fp-meta">2 Bath &nbsp;·&nbsp; up to 883 sq ft</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alma Rosewood layouts -->
+    <div class="fp-panel" id="fp-rosewood">
+      <div class="fp-grid">
+        <div class="fp-card reveal">
+          <div class="fp-img">
+            <img src="floorplan-rosewood-20x65.jpg" alt="Alma Rosewood 20x65 floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
+          </div>
+          <div class="fp-info">
+            <div class="fp-type">Type A &nbsp;<span style="font-size:.75rem;color:var(--cream3);">20' × 65'</span></div>
+            <div class="fp-meta">4 Bed · 4 Bath &nbsp;·&nbsp; 1,831 sq ft</div>
+          </div>
+        </div>
+        <div class="fp-card reveal">
+          <div class="fp-img">
+            <img src="floorplan-rosewood-20x70.jpg" alt="Alma Rosewood 20x70 floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
+          </div>
+          <div class="fp-info">
+            <div class="fp-type">Type B &nbsp;<span style="font-size:.75rem;color:var(--cream3);">20' × 70'</span></div>
+            <div class="fp-meta">4 Bed · 4 Bath &nbsp;·&nbsp; 2,007 sq ft</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:1.4rem;font-size:.72rem;color:var(--cream3);">Full floor plan drawings available upon request. <a href="https://api.whatsapp.com/send?phone=60125686285&text=Hi%20Joey%2C%20can%20you%20send%20me%20the%20full%20floor%20plans%20for%20Taman%20Alma%20KSL%3F" target="_blank" style="color:var(--gold);">Request brochure →</a></p>
   </div>
 </section>
 
@@ -378,6 +484,14 @@ var io = new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
 },{threshold:.12});
 revealEls.forEach(function(el){ io.observe(el); });
+
+// Floor plan tabs
+function fpSwitch(id, btn) {
+  document.querySelectorAll('.fp-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.querySelectorAll('.fp-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.getElementById('fp-'+id).classList.add('active');
+  btn.classList.add('active');
+}
 
 // FAQ toggle
 function faqToggle(btn){

@@ -121,18 +121,27 @@
   autorotateToggleElement.addEventListener('click', toggleAutorotate);
 
   // Set up fullscreen mode, if supported.
-  if (screenfull.enabled && data.settings.fullscreenButton) {
+  if (data.settings.fullscreenButton) {
     document.body.classList.add('fullscreen-enabled');
     fullscreenToggleElement.addEventListener('click', function() {
-      screenfull.toggle();
-    });
-    screenfull.on('change', function() {
-      if (screenfull.isFullscreen) {
-        fullscreenToggleElement.classList.add('enabled');
+      if (screenfull.enabled) {
+        screenfull.toggle();
       } else {
-        fullscreenToggleElement.classList.remove('enabled');
+        if (!document.fullscreenElement) {
+          (document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen).call(document.documentElement);
+        } else {
+          (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        }
       }
     });
+    var fsUpdate = function() {
+      var isFs = (screenfull.enabled && screenfull.isFullscreen) || !!document.fullscreenElement || !!document.webkitFullscreenElement;
+      if (isFs) { fullscreenToggleElement.classList.add('enabled'); }
+      else { fullscreenToggleElement.classList.remove('enabled'); }
+    };
+    if (screenfull.enabled) { screenfull.on('change', fsUpdate); }
+    document.addEventListener('fullscreenchange', fsUpdate);
+    document.addEventListener('webkitfullscreenchange', fsUpdate);
   } else {
     document.body.classList.add('fullscreen-disabled');
   }

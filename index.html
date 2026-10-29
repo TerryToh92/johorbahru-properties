@@ -243,6 +243,19 @@ body{background:var(--primary-gradient);color:var(--text-primary);font-family:'I
 .hero-credline a{color:#ffcf7a;text-decoration:underline;}
 .hero-credline-avatar{width:34px;height:34px;border-radius:50%;object-fit:cover;object-position:center;border:2px solid rgba(255,255,255,.55);flex-shrink:0;}
 
+/* ── HERO STAT CHIPS ── */
+.hero-stats{display:flex;gap:.65rem;flex-wrap:wrap;margin-bottom:1.8rem;}
+.hero-chip{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);color:rgba(255,255,255,.85);font-size:.68rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:.48rem 1rem;border-radius:2px;}
+.hero-chip strong{color:#ffd88a;font-weight:700;}
+
+/* ── FEATURED PORTALS STRIP ── */
+.portals-strip{background:#ffffff;border-bottom:1px solid var(--rule);padding:1rem 0;}
+.portals-strip-inner{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.portals-label{font-size:.62rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);white-space:nowrap;}
+.portal-pill{display:inline-flex;align-items:center;gap:.4rem;font-size:.72rem;font-weight:600;letter-spacing:.5px;color:var(--text-secondary);background:var(--primary-gradient);border:1px solid var(--rule);padding:.45rem 1rem;border-radius:50px;text-decoration:none;transition:all .25s;white-space:nowrap;}
+.portal-pill:hover{border-color:var(--gold-secondary);color:var(--gold-secondary);}
+.portal-pill i{font-size:.75rem;color:var(--gold-secondary);}
+
 /* ── AGENT & AGENCY (final section) ── */
 .footer-info{padding:clamp(2.6rem,6vw,4rem) 0;border-top:1px solid var(--rule);}
 
@@ -428,13 +441,47 @@ body{background:var(--primary-gradient);color:var(--text-primary);font-family:'I
 </nav>
 
 <!-- ══════════════ HERO ══════════════ -->
-<section style="background:var(--primary-gradient);padding:3rem 0 2rem;border-bottom:1px solid var(--rule);" id="top">
+<section class="hero" id="top">
   <div class="container">
-    <a href="index.html" style="font-size:.75rem;letter-spacing:1px;color:var(--gold-secondary);text-decoration:none;text-transform:uppercase;">← Back to Main Page</a>
-    <h1 style="font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.4rem);margin-top:.8rem;color:var(--text-primary);">Full JB Portfolio — <em>All 66 Projects</em></h1>
-    <p style="color:var(--text-secondary);font-size:.92rem;margin-top:.5rem;max-width:600px;">Browse and filter all 66 new launch listings across Johor Bahru — presented by Joey Koh, REN 77548, GT Nelson Realty.</p>
+    <div class="hero-content">
+      <div class="hero-brand-logo">
+        <img src="business%20logo.png" alt="JB Properties HUB — Joey Koh">
+      </div>
+      <div class="eyebrow">Johor Bahru · New Launch Property · Full Portfolio</div>
+      <h1>Your Complete Guide to<br><em>JB Property.</em></h1>
+      <p class="bio">66 new launch listings across Johor Bahru — from CIQ corridor high-rises to Iskandar Puteri landed homes and industrial units. Get developer pricing, floor plans, and personalised guidance from a licensed agent.</p>
+      <div class="hero-stats">
+        <div class="hero-chip"><strong>66</strong> Listings</div>
+        <div class="hero-chip">CIQ · RTS Corridor</div>
+        <div class="hero-chip">Iskandar Puteri</div>
+        <div class="hero-chip">Mount Austin · Skudai</div>
+        <div class="hero-chip">From <strong>RM 180K</strong></div>
+        <div class="hero-chip">Freehold &amp; Leasehold</div>
+        <div class="hero-chip">Foreign Buyer: Enquire</div>
+      </div>
+      <div class="cta-row">
+        <a href="https://api.whatsapp.com/send?phone=60125686285&text=Hi%20Joey%2C%20I%27d%20like%20to%20enquire%20about%20a%20JB%20property" target="_blank" class="btn-gold"><i class="bi bi-whatsapp"></i> WhatsApp Joey</a>
+        <a href="#listings" class="btn-outline">Browse All Projects</a>
+      </div>
+      <div class="hero-credline">
+        <img src="https://assets.cdn.filesafe.space/ysVC1W0Hqzs5FWlazBaN/media/6a4e0339adefd85d72ad8244.jpg" alt="Joey Koh — Licensed Property Agent REN 77548" class="hero-credline-avatar">
+        <span>Joey Koh · REN 77548 · GT Nelson Realty · <a href="https://lpeph.gov.my/search-listing" target="_blank">LPEPH Verified →</a> · <em style="font-size:.76rem;opacity:.75;">Not the developer's official website.</em></span>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- ══════════════ FEATURED PORTALS STRIP ══════════════ -->
+<div class="portals-strip">
+  <div class="container">
+    <div class="portals-strip-inner">
+      <span class="portals-label">Featured Portals</span>
+      <a href="ciq/" class="portal-pill"><i class="bi bi-buildings"></i> CIQ Corridor — 10 Projects</a>
+      <a href="pulai-bestari/" class="portal-pill"><i class="bi bi-house-door"></i> Pulai Bestari — Landed</a>
+      <a href="riveria-garden/" class="portal-pill"><i class="bi bi-tree"></i> Riveria Garden @ Wawari</a>
+    </div>
+  </div>
+</div>
 
 <!-- ══════════════ LISTINGS ══════════════ -->
 <div class="container mt-5 pb-5" id="listings">

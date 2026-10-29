@@ -98,11 +98,10 @@ img{max-width:100%;height:auto;}
 .btn-enquire:hover{background:#1db954;color:#fff;}
 
 /* FLOOR PLANS */
-.fp-tabs{display:flex;gap:.5rem;margin-top:2rem;flex-wrap:wrap;}
-.fp-tab{background:none;border:1px solid var(--rule);padding:.5rem 1.2rem;font-size:.72rem;letter-spacing:1.4px;text-transform:uppercase;color:var(--cream3);cursor:pointer;border-radius:2px;font-family:var(--sans);transition:all .2s;}
-.fp-tab.active{background:var(--gold);color:#fff;border-color:var(--gold);}
-.fp-panel{display:none;margin-top:1.8rem;}
-.fp-panel.active{display:block;}
+.fp-project{margin-top:3rem;}
+.fp-project-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:1px solid var(--rule);}
+.fp-project-header h3{font-family:var(--serif);font-size:1.5rem;color:var(--cream);}
+.fp-project-header .fp-badge{font-size:.62rem;letter-spacing:1.2px;text-transform:uppercase;padding:.25rem .7rem;border-radius:2px;background:var(--bg2);color:var(--cream2);border:1px solid var(--rule);}
 .fp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem;}
 .fp-card{background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden;box-shadow:0 2px 14px rgba(0,0,0,.06);}
 .fp-img{position:relative;background:var(--bg2);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;}
@@ -274,15 +273,15 @@ img{max-width:100%;height:auto;}
     <div class="divider reveal"></div>
     <p class="section-sub reveal">Browse unit layouts by project. Contact Joey for the full brochure with detailed floor plan drawings.</p>
 
-    <div class="fp-tabs reveal">
-      <button class="fp-tab active" onclick="fpSwitch('ceros',this)">Ceros Residences</button>
-      <button class="fp-tab" onclick="fpSwitch('rosewood',this)">Alma Rosewood</button>
-    </div>
-
-    <!-- Ceros Residences layouts -->
-    <div class="fp-panel active" id="fp-ceros">
+    <!-- Ceros Residences -->
+    <div class="fp-project reveal" id="fp-ceros">
+      <div class="fp-project-header">
+        <h3>Ceros Residences</h3>
+        <span class="fp-badge">Serviced Apartment</span>
+        <span class="fp-badge">506 – 883 sq ft</span>
+      </div>
       <div class="fp-grid">
-        <div class="fp-card reveal">
+        <div class="fp-card">
           <div class="fp-img">
             <img src="floorplan-ceros-studio.jpg" alt="Ceros Studio floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
@@ -292,27 +291,27 @@ img{max-width:100%;height:auto;}
             <div class="fp-meta">1 Bath &nbsp;·&nbsp; from 506 sq ft</div>
           </div>
         </div>
-        <div class="fp-card reveal">
+        <div class="fp-card">
           <div class="fp-img">
             <img src="floorplan-ceros-1plus1.jpg" alt="Ceros 1+1 floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
           </div>
           <div class="fp-info">
             <div class="fp-type">1+1 Bedroom</div>
-            <div class="fp-meta">1 Bath &nbsp;·&nbsp; Intermediate size</div>
+            <div class="fp-meta">1 Bath</div>
           </div>
         </div>
-        <div class="fp-card reveal">
+        <div class="fp-card">
           <div class="fp-img">
             <img src="floorplan-ceros-2br.jpg" alt="Ceros 2 Bedroom floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
           </div>
           <div class="fp-info">
             <div class="fp-type">2 Bedroom</div>
-            <div class="fp-meta">2 Bath &nbsp;·&nbsp; Mid range</div>
+            <div class="fp-meta">2 Bath</div>
           </div>
         </div>
-        <div class="fp-card reveal">
+        <div class="fp-card">
           <div class="fp-img">
             <img src="floorplan-ceros-3br.jpg" alt="Ceros 3 Bedroom floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
@@ -325,10 +324,15 @@ img{max-width:100%;height:auto;}
       </div>
     </div>
 
-    <!-- Alma Rosewood layouts -->
-    <div class="fp-panel" id="fp-rosewood">
+    <!-- Alma Rosewood -->
+    <div class="fp-project reveal" id="fp-rosewood">
+      <div class="fp-project-header">
+        <h3>Alma Rosewood</h3>
+        <span class="fp-badge">Double Storey Terrace</span>
+        <span class="fp-badge">1,831 – 2,007 sq ft</span>
+      </div>
       <div class="fp-grid">
-        <div class="fp-card reveal">
+        <div class="fp-card">
           <div class="fp-img">
             <img src="floorplan-rosewood-20x65.jpg" alt="Alma Rosewood 20x65 floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
@@ -338,7 +342,7 @@ img{max-width:100%;height:auto;}
             <div class="fp-meta">4 Bed · 4 Bath &nbsp;·&nbsp; 1,831 sq ft</div>
           </div>
         </div>
-        <div class="fp-card reveal">
+        <div class="fp-card">
           <div class="fp-img">
             <img src="floorplan-rosewood-20x70.jpg" alt="Alma Rosewood 20x70 floor plan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <div class="fp-placeholder" style="display:none;"><i class="bi bi-layout-wtf"></i>Coming Soon</div>
@@ -484,14 +488,6 @@ var io = new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
 },{threshold:.12});
 revealEls.forEach(function(el){ io.observe(el); });
-
-// Floor plan tabs
-function fpSwitch(id, btn) {
-  document.querySelectorAll('.fp-panel').forEach(function(p){ p.classList.remove('active'); });
-  document.querySelectorAll('.fp-tab').forEach(function(t){ t.classList.remove('active'); });
-  document.getElementById('fp-'+id).classList.add('active');
-  btn.classList.add('active');
-}
 
 // FAQ toggle
 function faqToggle(btn){

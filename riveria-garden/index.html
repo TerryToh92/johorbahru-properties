@@ -609,84 +609,11 @@ footer{background:#0a0806;padding:2.5rem clamp(1.2rem,5vw,4rem);}
       </div>
     </div>
 
-    <!-- Illustrated Map -->
-    <div class="location-map reveal" style="margin-top:2.5rem;">
-      <svg viewBox="0 0 520 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:Arial,sans-serif;">
-        <!-- Background -->
-        <rect width="520" height="340" fill="#e8f0e4"/>
-        <!-- Water / Singapore Strait -->
-        <rect x="0" y="260" width="520" height="80" fill="#b8d4e8"/>
-        <text x="260" y="295" text-anchor="middle" fill="#5a8aa8" font-size="11" font-weight="600">SINGAPORE STRAIT</text>
-        <!-- Singapore label -->
-        <text x="260" y="318" text-anchor="middle" fill="#5a8aa8" font-size="9">SINGAPORE →</text>
-
-        <!-- Iskandar Coastal Highway -->
-        <path d="M20,220 Q130,200 260,210 Q380,220 500,200" stroke="#e8a020" stroke-width="5" fill="none" stroke-linecap="round"/>
-        <text x="265" y="198" text-anchor="middle" fill="#b07010" font-size="8.5" font-weight="600">ISKANDAR COASTAL HIGHWAY</text>
-
-        <!-- 2nd Link Expressway -->
-        <path d="M380,340 L360,200 L340,60" stroke="#c07d1a" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="0"/>
-        <text x="410" y="140" fill="#8a5a0a" font-size="8.5" font-weight="700" transform="rotate(-80,410,140)">2ND LINK EXPRESSWAY</text>
-
-        <!-- Main township roads -->
-        <path d="M100,100 L420,100" stroke="#c8b880" stroke-width="3" fill="none"/>
-        <path d="M260,60 L260,240" stroke="#c8b880" stroke-width="3" fill="none"/>
-        <path d="M150,60 L150,240" stroke="#c8b880" stroke-width="2" fill="none"/>
-
-        <!-- Green areas -->
-        <ellipse cx="180" cy="155" rx="35" ry="25" fill="#a8c880" opacity=".6"/>
-        <text x="180" y="158" text-anchor="middle" fill="#3a6020" font-size="7.5">GREEN</text>
-
-        <!-- Riveria Garden block -->
-        <rect x="175" y="95" width="95" height="75" rx="4" fill="#c07d1a" opacity=".9"/>
-        <text x="222" y="128" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700">RIVERIA</text>
-        <text x="222" y="141" text-anchor="middle" fill="#fff" font-size="9.5" font-weight="700">GARDEN</text>
-        <text x="222" y="153" text-anchor="middle" fill="rgba(255,255,255,.8)" font-size="7.5">@ Wawari</text>
-
-        <!-- Pin -->
-        <circle cx="222" cy="90" r="10" fill="#c07d1a" stroke="#fff" stroke-width="2"/>
-        <text x="222" y="94" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">★</text>
-
-        <!-- EduCity -->
-        <rect x="60" y="90" width="80" height="40" rx="3" fill="#5a8a6a" opacity=".8"/>
-        <text x="100" y="107" text-anchor="middle" fill="#fff" font-size="8" font-weight="600">EduCity /</text>
-        <text x="100" y="119" text-anchor="middle" fill="#fff" font-size="8">Iskandar Puteri</text>
-
-        <!-- Medini -->
-        <rect x="310" y="120" width="75" height="35" rx="3" fill="#6a7a9a" opacity=".8"/>
-        <text x="347" y="133" text-anchor="middle" fill="#fff" font-size="8" font-weight="600">Medini</text>
-        <text x="347" y="145" text-anchor="middle" fill="#fff" font-size="8">Gleneagles</text>
-
-        <!-- AEON Bukit Indah -->
-        <rect x="60" y="155" width="80" height="30" rx="3" fill="#7a6a9a" opacity=".8"/>
-        <text x="100" y="168" text-anchor="middle" fill="#fff" font-size="8" font-weight="600">AEON</text>
-        <text x="100" y="178" text-anchor="middle" fill="#fff" font-size="7.5">Bukit Indah</text>
-
-        <!-- Legoland -->
-        <rect x="310" y="170" width="75" height="30" rx="3" fill="#d06030" opacity=".8"/>
-        <text x="347" y="183" text-anchor="middle" fill="#fff" font-size="8" font-weight="600">Legoland</text>
-        <text x="347" y="193" text-anchor="middle" fill="#fff" font-size="7.5">Malaysia</text>
-
-        <!-- JB City -->
-        <rect x="410" y="55" width="85" height="35" rx="3" fill="#404a5a" opacity=".85"/>
-        <text x="452" y="69" text-anchor="middle" fill="#fff" font-size="8" font-weight="600">JB City</text>
-        <text x="452" y="80" text-anchor="middle" fill="#fff" font-size="7.5">Centre ~25 min</text>
-
-        <!-- Tuas / Singapore border -->
-        <line x1="350" y1="256" x2="520" y2="256" stroke="#8aacca" stroke-width="1.5" stroke-dasharray="4,3"/>
-        <text x="430" y="252" text-anchor="middle" fill="#5a7a9a" font-size="8" font-weight="600">15 MIN TO CIQ 2ND LINK</text>
-
-        <!-- Compass -->
-        <circle cx="480" cy="35" r="16" fill="rgba(255,255,255,.75)" stroke="#c07d1a" stroke-width="1.5"/>
-        <text x="480" y="28" text-anchor="middle" fill="#c07d1a" font-size="10" font-weight="700">N</text>
-        <text x="480" y="50" text-anchor="middle" fill="#999" font-size="8">S</text>
-        <text x="470" y="39" text-anchor="middle" fill="#999" font-size="8">W</text>
-        <text x="490" y="39" text-anchor="middle" fill="#999" font-size="8">E</text>
-        <line x1="480" y1="22" x2="480" y2="48" stroke="#c07d1a" stroke-width="1"/>
-        <line x1="468" y1="35" x2="492" y2="35" stroke="#c07d1a" stroke-width="1"/>
-      </svg>
+    <!-- Location Map -->
+    <div class="reveal" style="margin-top:2.5rem;border-radius:8px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.2);">
+      <img src="location-map.webp" alt="Riveria Garden @ Wawari location map — Iskandar Puteri Johor" style="width:100%;height:auto;display:block;">
     </div>
-    <p style="text-align:center;font-size:.7rem;color:var(--cream3);margin-top:.6rem;">Map is an artistic impression for reference. Travel times are indicative and vary with traffic conditions.</p>
+    <p style="text-align:center;font-size:.7rem;color:var(--cream3);margin-top:.6rem;">Map is for reference only. Travel times are indicative and vary with traffic conditions.</p>
 
     <!-- Nearby -->
     <div class="nearby-grid reveal" style="margin-top:2.5rem;">

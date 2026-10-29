@@ -96,11 +96,37 @@
   display: block !important;
 }
 
-/* Hide close + body text */
+/* Hide close button */
 .info-hotspot .info-hotspot-close-wrapper,
 .desktop .info-hotspot.visible .info-hotspot-close-wrapper { display: none !important; visibility: hidden !important; }
+
+/* Show subtitle text below pin as small label */
 .info-hotspot .info-hotspot-text,
-.desktop .info-hotspot.visible .info-hotspot-text { display: none !important; visibility: hidden !important; }
+.desktop .info-hotspot.visible .info-hotspot-text {
+  display: block !important;
+  visibility: visible !important;
+  position: static !important;
+  width: auto !important;
+  max-height: none !important;
+  height: auto !important;
+  background: transparent !important;
+  -ms-transform: none !important;
+  -webkit-transform: none !important;
+  transform: none !important;
+  padding: 1px 0 0 25px !important;
+  margin: 0 !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,.72) !important;
+  text-shadow: 0 0 4px rgba(0,0,0,1), 0 1px 3px rgba(0,0,0,1) !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  border-radius: 0 !important;
+  line-height: 1.3 !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+}
 </style>
 </head>
 <body class="single-scene ">

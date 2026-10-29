@@ -145,8 +145,13 @@ img{max-width:100%;height:auto;}
 .faq-a.open{display:block;}
 
 /* FOOTER */
-.site-footer{background:var(--cream);color:rgba(255,255,255,.6);padding:2rem clamp(1.2rem,5vw,3rem);text-align:center;font-size:.78rem;}
-.site-footer a{color:var(--gold);}
+.site-footer{border-top:1px solid var(--rule);padding:2.5rem clamp(1.2rem,5vw,3rem);display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:1.2rem 2rem;max-width:1120px;margin:0 auto;}
+.footer-disclaimer-group{display:flex;flex-direction:column;gap:.7rem;flex:1 1 500px;max-width:760px;}
+.footer-disclaimer{font-size:.72rem;line-height:1.7;color:var(--cream3);}
+.footer-legal{display:flex;gap:1.2rem;flex-wrap:wrap;align-items:flex-start;padding-top:.15rem;}
+.footer-legal a{font-size:.72rem;letter-spacing:.8px;color:var(--cream3);text-decoration:underline;}
+.footer-legal a:hover{color:var(--gold);}
+.ren-bar{background:var(--cream);color:rgba(255,255,255,.55);text-align:center;font-size:.68rem;letter-spacing:1.4px;text-transform:uppercase;padding:.55rem 1rem;}
 
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;}
@@ -503,11 +508,19 @@ img{max-width:100%;height:auto;}
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <p style="margin-bottom:.4rem;font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(255,255,255,.8);">JB Properties HUB</p>
-  <p>Joey Koh · REN 77548 · GT Nelson Realty Sdn Bhd E(1)1836</p>
-  <p style="margin-top:.4rem;"><a href="tel:+60125686285">+60 12-568 6285</a> &ensp;|&ensp; <a href="../">All Projects</a> &ensp;|&ensp; <a href="../terms-of-use.html">Terms</a></p>
-  <p style="margin-top:.8rem;font-size:.7rem;opacity:.5;">Information is for reference only. Prices and availability subject to change without notice. E&OE.</p>
+  <div class="footer-disclaimer-group">
+    <p class="footer-disclaimer">Independent site operated by Joey Koh, a registered negotiator (REN No. 77548) of the licensed agency GT Nelson Realty Sdn Bhd (E (1) 1836). All projects shown are presented for information only and are subject to developer availability and sales-authorisation agreements (latest available and booking units included) — this is not any developer's official website.</p>
+    <p class="footer-disclaimer">All prices, unit sizes, completion dates, and developer information are supplied by respective developers and are subject to change without prior notice. Listings on this page do not constitute an offer of contract. Please verify all details independently before making any investment decision.</p>
+  </div>
+  <div class="footer-legal">
+    <a href="../about.html">About Joey</a>
+    <a href="../privacy-policy.html" target="_blank">Privacy</a>
+    <a href="../terms-of-use.html" target="_blank">Terms</a>
+    <a href="tel:+60125686285">+6012-5686285</a>
+    <a href="../">All Projects</a>
+  </div>
 </footer>
+<div class="ren-bar">&copy; 2026 · REN 77548 · Joey Koh · GT Nelson Realty Sdn Bhd E(1)1836 · Residential Property Marketing &amp; Consultation</div>
 
 <!-- WhatsApp Float -->
 <a href="https://api.whatsapp.com/send?phone=60125686285&text=Hi%20Joey%2C%20I%27m%20interested%20in%20Taman%20Alma%20KSL%20projects.%20Please%20share%20more%20details." target="_blank" class="wa-float">

@@ -182,6 +182,34 @@ window.addEventListener('load', function() {
   markVisible();
   setTimeout(markVisible, 800);
   setTimeout(markVisible, 2000);
+
+  // Force fullscreen button visible and wire native Fullscreen API
+  // (screenfull.js may return enabled:false inside an iframe)
+  var fsBtn = document.getElementById('fullscreenToggle');
+  if (fsBtn) {
+    document.body.classList.add('fullscreen-enabled');
+    fsBtn.addEventListener('click', function() {
+      if (!document.fullscreenElement) {
+        (document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen).call(document.documentElement);
+      } else {
+        (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      }
+    });
+    document.addEventListener('fullscreenchange', function() {
+      if (document.fullscreenElement) {
+        fsBtn.classList.add('enabled');
+      } else {
+        fsBtn.classList.remove('enabled');
+      }
+    });
+    document.addEventListener('webkitfullscreenchange', function() {
+      if (document.webkitFullscreenElement) {
+        fsBtn.classList.add('enabled');
+      } else {
+        fsBtn.classList.remove('enabled');
+      }
+    });
+  }
 });
 </script>
 </body>

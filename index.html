@@ -1078,7 +1078,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!container) return;
 
     var cards = Array.from(container.querySelectorAll('.property-card'));
-    var others = cards.filter(function(c){ return !/KSL/i.test(c.innerText); });
+    var others = cards.filter(function(c) {
+      var text = c.innerText.toUpperCase();
+      if (!/KSL/.test(text)) return true; // non-KSL developer
+      // KSL retail shops & factories → also hide (except Riverpoint)
+      var isRetailOrFactory = /RETAIL SHOP|FACTORY|BUSINESS PARK/.test(text);
+      if (isRetailOrFactory && c.id !== 'riverpoint-retails-shop') return true;
+      return false;
+    });
     var kslCount = cards.length - others.length;
 
     others.forEach(function(c){ c.classList.add('hidden-other'); });

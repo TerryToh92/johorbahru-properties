@@ -256,6 +256,13 @@ body{background:var(--primary-gradient);color:var(--text-primary);font-family:'I
 .portal-pill:hover{border-color:var(--gold-secondary);color:var(--gold-secondary);}
 .portal-pill i{font-size:.75rem;color:var(--gold-secondary);}
 
+/* ── EXPLORE MORE BUTTON ── */
+.hidden-other{display:none !important;}
+.btn-explore-more{display:inline-flex;align-items:center;gap:.55rem;background:transparent;border:1px solid rgba(201,138,42,.5);color:var(--gold-secondary);font-family:'Inter',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;padding:.95rem 2.4rem;border-radius:2px;cursor:pointer;transition:all .3s;}
+.btn-explore-more:hover{background:var(--gold-secondary);color:#fff;}
+.explore-divider{text-align:center;padding:2.5rem 1rem 1rem;border-top:1px solid var(--rule);margin-top:.5rem;}
+.explore-note{color:var(--text-muted);font-size:.82rem;margin-bottom:1.2rem;}
+
 /* ── AGENT & AGENCY (final section) ── */
 .footer-info{padding:clamp(2.6rem,6vw,4rem) 0;border-top:1px solid var(--rule);}
 
@@ -983,11 +990,13 @@ document.addEventListener('DOMContentLoaded', function() {
       var typeOk = curType === 'all' ||
         (curType === 'landed' && landedTypes.includes(type)) ||
         (curType !== 'landed' && type === curType);
-      if (locOk && typeOk) { c.style.display = 'block'; n++; }
+      var isOther = c.classList.contains('hidden-other');
+      if (locOk && typeOk && !isOther) { c.style.display = 'block'; n++; }
       else { c.style.display = 'none'; }
     });
     updateCount(n);
   }
+  window._refilter = filter;
 
   filterBtns.forEach(function(btn) {
     btn.addEventListener('click', function() {
@@ -1046,6 +1055,60 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 800);
   }
 });
+</script>
+
+<script>
+/* ── KSL-FIRST: hide non-KSL cards, show "Explore More" button ── */
+(function(){
+  var expanded = false;
+
+  window.expandOthers = function() {
+    if (expanded) return;
+    expanded = true;
+    document.querySelectorAll('.property-card.hidden-other').forEach(function(c){
+      c.classList.remove('hidden-other');
+    });
+    var wrap = document.getElementById('explore-btn-wrap');
+    if (wrap) wrap.remove();
+    if (window._refilter) window._refilter();
+  };
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var container = document.getElementById('property-container');
+    if (!container) return;
+
+    var cards = Array.from(container.querySelectorAll('.property-card'));
+    var others = cards.filter(function(c){ return !/KSL/i.test(c.innerText); });
+    var kslCount = cards.length - others.length;
+
+    others.forEach(function(c){ c.classList.add('hidden-other'); });
+
+    if (others.length > 0) {
+      var wrap = document.createElement('div');
+      wrap.id = 'explore-btn-wrap';
+      wrap.className = 'col-12';
+      wrap.innerHTML =
+        '<div class="explore-divider">' +
+        '<p class="explore-note">Showing ' + kslCount + ' KSL projects — ' + others.length + ' more listings from other developers</p>' +
+        '<button class="btn-explore-more" onclick="expandOthers()">' +
+        '<i class="bi bi-grid-3x3-gap-fill"></i>&ensp;Explore ' + others.length + ' More Projects&ensp;<i class="bi bi-chevron-down"></i>' +
+        '</button></div>';
+      container.appendChild(wrap);
+    }
+
+    // Auto-expand when a specific filter is applied, then re-run filter
+    document.querySelectorAll('.filter-btn, .type-filter-btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var v = this.getAttribute('data-filter') || this.getAttribute('data-type');
+        if (v && v !== 'all') window.expandOthers();
+      });
+    });
+    var ls = document.getElementById('locationSelect');
+    var ts = document.getElementById('typeSelect');
+    if (ls) ls.addEventListener('change', function(){ if (this.value !== 'all') window.expandOthers(); });
+    if (ts) ts.addEventListener('change', function(){ if (this.value !== 'all') window.expandOthers(); });
+  });
+})();
 </script>
 </body>
 </html>

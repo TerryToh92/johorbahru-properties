@@ -1077,6 +1077,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var container = document.getElementById('property-container');
     if (!container) return;
 
+    // Reorder KSL projects in desired sequence
+    var KSL_ORDER = ['dsecret-garden-2','daya-residences-2','ksl-lakeview','jewel-residences','austin-legacy','puteri-residences','riveria-garden-elora','riveria-garden-avenia','riverpoint-retails-shop','ksl-residences-3','rosewood-taman-amla','aurora-1-bumi','aurora-2-end-lot','aurora-3','aurora-4','aurora-5-single-storey'];
+    var orderedSet = {};
+    KSL_ORDER.forEach(function(id){ orderedSet[id] = true; });
+    var allCards = Array.from(container.querySelectorAll('.property-card'));
+    var front = KSL_ORDER.map(function(id){ return document.getElementById(id); }).filter(Boolean);
+    var rest = allCards.filter(function(c){ return !orderedSet[c.id]; });
+    front.concat(rest).forEach(function(c){ container.appendChild(c); });
+
     var cards = Array.from(container.querySelectorAll('.property-card'));
     var others = cards.filter(function(c) {
       var text = c.innerText.toUpperCase();

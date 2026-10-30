@@ -51,99 +51,66 @@ function svgEl(tag, attrs) {
   return e;
 }
 
-// ═══════════════════════════════════════════════════════════════
-//  Label metrics
-// ═══════════════════════════════════════════════════════════════
-var BAR  = 3;   // accent bar width (px)
-var PX   = 9;   // text padding horizontal
-var PY   = 5;   // text padding vertical
-var LH   = 16;  // single line height
-
-function approxWidth(text, fontSize) {
-  // Inter condensed-ish: ~0.57× at font-size
-  return Math.ceil(text.length * fontSize * 0.57) + BAR + PX * 2 + 4;
-}
+var LH = 14;  // line height for multi-line labels
 
 // ═══════════════════════════════════════════════════════════════
-//  Build one annotation group (pre-created, updated each frame)
+//  Build one annotation group — frameless: dot + line + text only
 // ═══════════════════════════════════════════════════════════════
 function buildGroup(ann) {
   var color  = TYPE_COLOR[ann.type] || '#ffffff';
   var hasSub = !!(ann.sub && ann.sub.length);
 
-  var rW = Math.max(
-    approxWidth(ann.label, 11),
-    hasSub ? approxWidth(ann.sub, 9) : 0,
-    80
-  );
-  var rH = hasSub ? PY * 2 + LH * 2 : PY * 2 + LH;
-
   var g = svgEl('g');
   g.style.display    = 'none';
   g.style.willChange = 'transform';
 
-  // Connector line (dot → rect edge)
+  // Connector line (dot → label anchor)
   var line = svgEl('line', {
-    stroke: 'rgba(255,255,255,0.60)',
+    stroke: 'rgba(255,255,255,0.70)',
     'stroke-width': '1',
+    'stroke-dasharray': '3 2',
   });
   g.appendChild(line);
 
   // Endpoint dot
   var dot = svgEl('circle', {
-    r: '3.5',
+    r: '4',
     fill: color,
-    stroke: 'rgba(255,255,255,0.90)',
-    'stroke-width': '1.2',
+    stroke: 'rgba(255,255,255,0.95)',
+    'stroke-width': '1.5',
+    filter: 'url(#ann-shd)',
   });
   g.appendChild(dot);
 
-  // Background rect
-  var rect = svgEl('rect', {
-    width: rW, height: rH,
-    rx: '3',
-    fill: 'rgba(4,14,28,0.82)',
-    stroke: 'rgba(255,255,255,0.10)',
-    'stroke-width': '0.5',
-    filter: 'url(#ann-shd)',
-  });
-  g.appendChild(rect);
-
-  // Left accent bar
-  var bar = svgEl('rect', {
-    width: BAR, height: rH,
-    rx: '1.5',
-    fill: color,
-  });
-  g.appendChild(bar);
-
-  // Title
+  // Title text — white with text-shadow via filter
   var titleEl = svgEl('text', {
     'font-family': "'Inter', system-ui, sans-serif",
     'font-size': '11',
-    'font-weight': '600',
+    'font-weight': '700',
     fill: '#ffffff',
     'dominant-baseline': 'middle',
+    filter: 'url(#ann-txt)',
   });
   titleEl.textContent = ann.label;
   g.appendChild(titleEl);
 
-  // Subtitle
+  // Subtitle text
   var subEl = null;
   if (hasSub) {
     subEl = svgEl('text', {
       'font-family': "'Inter', system-ui, sans-serif",
       'font-size': '9',
       'font-weight': '400',
-      fill: 'rgba(255,255,255,0.55)',
+      fill: color,
       'dominant-baseline': 'middle',
+      filter: 'url(#ann-txt)',
     });
     subEl.textContent = ann.sub;
     g.appendChild(subEl);
   }
 
-  return { g: g, line: line, dot: dot, rect: rect, bar: bar,
-           titleEl: titleEl, subEl: subEl, rW: rW, rH: rH, hasSub: hasSub };
+  return { g: g, line: line, dot: dot,
+           titleEl: titleEl, subEl: subEl, hasSub: hasSub };
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -184,39 +151,30 @@ function tick() {
     grp.dot.setAttribute('cx', dotX);
     grp.dot.setAttribute('cy', dotY);
 
-    // Label rect: centered on (dotX + ox, dotY + oy)
-    var lx = dotX + ann.ox - grp.rW / 2;
-    var ly = dotY + ann.oy - grp.rH / 2;
+    // Label anchor: offset from dot
+    var tx = dotX + ann.ox;
+    var ty = dotY + ann.oy;
 
     // Clamp label inside viewport
-    var mg = 6;
-    lx = Math.max(mg, Math.min(W - grp.rW  - mg, lx));
-    ly = Math.max(mg, Math.min(H - grp.rH - mg, ly));
+    var mg = 8;
+    tx = Math.max(mg, Math.min(W - 100 - mg, tx));
+    ty = Math.max(mg + 6, Math.min(H - (grp.hasSub ? LH * 2 : LH) - mg, ty));
 
-    grp.rect.setAttribute('x', lx);
-    grp.rect.setAttribute('y', ly);
-    grp.bar.setAttribute('x',  lx);
-    grp.bar.setAttribute('y',  ly);
-
-    // Text x: after bar + padding
-    var tx = lx + BAR + PX;
     if (grp.hasSub) {
       grp.titleEl.setAttribute('x', tx);
-      grp.titleEl.setAttribute('y', ly + PY + LH * 0.5);
+      grp.titleEl.setAttribute('y', ty);
       grp.subEl.setAttribute('x', tx);
-      grp.subEl.setAttribute('y', ly + PY + LH * 1.48);
+      grp.subEl.setAttribute('y', ty + LH);
     } else {
       grp.titleEl.setAttribute('x', tx);
-      grp.titleEl.setAttribute('y', ly + grp.rH / 2);
+      grp.titleEl.setAttribute('y', ty);
     }
 
-    // Line endpoint: nearest point on rect perimeter to dot
-    var ex = Math.max(lx, Math.min(lx + grp.rW, dotX));
-    var ey = Math.max(ly, Math.min(ly + grp.rH, dotY));
+    // Line from dot to text anchor
     grp.line.setAttribute('x1', dotX);
     grp.line.setAttribute('y1', dotY);
-    grp.line.setAttribute('x2', ex);
-    grp.line.setAttribute('y2', ey);
+    grp.line.setAttribute('x2', tx);
+    grp.line.setAttribute('y2', ty);
   }
 }
 
@@ -235,12 +193,19 @@ function init() {
     'overflow:visible',
   ].join(';');
 
-  // Drop-shadow filter definition
+  // Filter definitions
   var defs = svgEl('defs');
   defs.innerHTML =
-    '<filter id="ann-shd" x="-25%" y="-25%" width="150%" height="150%">' +
-      '<feDropShadow dx="0" dy="1" stdDeviation="2.5" ' +
-        'flood-color="rgba(0,0,0,0.7)"/>' +
+    // Dot glow
+    '<filter id="ann-shd" x="-100%" y="-100%" width="300%" height="300%">' +
+      '<feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="rgba(0,0,0,0.9)"/>' +
+    '</filter>' +
+    // Text stroke/shadow for legibility without a box
+    '<filter id="ann-txt" x="-10%" y="-30%" width="120%" height="160%">' +
+      '<feMorphology in="SourceAlpha" operator="dilate" radius="2" result="expanded"/>' +
+      '<feFlood flood-color="rgba(0,0,0,0.85)" result="color"/>' +
+      '<feComposite in="color" in2="expanded" operator="in" result="shadow"/>' +
+      '<feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>' +
     '</filter>';
   svgRoot.appendChild(defs);
 

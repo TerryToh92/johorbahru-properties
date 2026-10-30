@@ -16,6 +16,14 @@
 <meta name="geo.position" content="1.5350;103.7955">
 <meta name="ICBM" content="1.5350, 103.7955">
 <meta name="author" content="Joey Koh REN 77548 — GT Nelson Realty Sdn Bhd E(1)1836">
+<!-- Agent profile signals (personal branding) -->
+<meta property="article:author" content="Joey Koh REN 77548">
+<meta name="twitter:creator" content="@JBPropertiesHUB">
+<meta name="DC.creator" content="Joey Koh, REN 77548">
+<meta name="DC.contributor" content="JB Properties HUB">
+<!-- Freshness signals -->
+<meta name="date" content="2026-10-31">
+<meta name="revised" content="2026-10-31">
 <meta name="language" content="en-MY">
 <link rel="canonical" href="https://johorbahru-properties.com/ksl-lakeview/">
 <link rel="alternate" hreflang="en-my" href="https://johorbahru-properties.com/ksl-lakeview/">
@@ -43,25 +51,23 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "RealEstateAgent",
+      "@type": ["Person","RealEstateAgent"],
       "@id": "https://johorbahru-properties.com/about.html#joey-koh",
       "name": "Joey Koh",
+      "givenName": "Joey",
+      "familyName": "Koh",
       "identifier": "REN 77548",
-      "description": "Licensed Real Estate Negotiator (REN 77548) specialising in new launch freehold properties in Johor Bahru. Serves Malaysian and Singapore-based buyers. Operating under GT Nelson Realty Sdn Bhd E(1)1836.",
+      "jobTitle": "Licensed Real Estate Negotiator",
+      "description": "Joey Koh (REN 77548) is a licensed Real Estate Negotiator based in Johor Bahru, Malaysia, specialising in new-launch freehold properties near CIQ and Bukit Chagar RTS. She serves Malaysian and Singapore-based buyers and is fluent in English, Mandarin and Malay. Operating under GT Nelson Realty Sdn Bhd E(1)1836 and operating JB Properties HUB, an independent property discovery platform for Johor Bahru.",
       "telephone": "+60125686285",
       "url": "https://johorbahru-properties.com",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "GT Nelson Realty Sdn Bhd",
-        "identifier": "E(1)1836",
-        "address": {"@type":"PostalAddress","addressLocality":"Johor Bahru","addressCountry":"MY"}
-      },
-      "areaServed": [
-        {"@type":"City","name":"Johor Bahru"},
-        {"@type":"Place","name":"Taman Molek"},
-        {"@type":"Place","name":"Ponderosa Township"}
-      ],
-      "knowsAbout": ["KSL Lakeview","KSL Holdings Berhad","Freehold condo Taman Molek","New launch property Johor Bahru","Ponderosa lakeside property"]
+      "image": {"@type":"ImageObject","url":"https://johorbahru-properties.com/business%20logo.png","caption":"Joey Koh — Licensed Real Estate Negotiator REN 77548, Johor Bahru"},
+      "sameAs": ["https://johorbahru-properties.com/about.html","https://wa.me/60125686285","https://johorbahru-properties.com"],
+      "worksFor": {"@type":"Organization","name":"GT Nelson Realty Sdn Bhd","identifier":"E(1)1836","address":{"@type":"PostalAddress","addressLocality":"Johor Bahru","addressCountry":"MY"}},
+      "areaServed": [{"@type":"City","name":"Johor Bahru"},{"@type":"Country","name":"Singapore","description":"Serves Singapore-based buyers"}],
+      "hasCredential": {"@type":"EducationalOccupationalCredential","credentialCategory":"Real Estate Negotiator Licence","name":"REN 77548","recognizedBy":{"@type":"Organization","name":"Board of Valuers, Appraisers, Estate Agents and Property Managers Malaysia (BOVAEA)"}},
+      "knowsLanguage": [{"@type":"Language","name":"English"},{"@type":"Language","name":"Mandarin Chinese"},{"@type":"Language","name":"Malay"}],
+      "knowsAbout": ["New launch freehold properties Johor Bahru","CIQ corridor property JB","Bukit Chagar RTS property","Foreign buyer property Malaysia","JB property for Singaporeans","Joey Koh REN 77548","KSL Lakeview","KSL Holdings Berhad","Freehold condo Taman Molek","Ponderosa lakeside property"]
     },
     {
       "@type": "Residence",
@@ -281,6 +287,26 @@ summary::-webkit-details-marker{display:none;}
 summary::after{content:'\002B';font-size:1.1rem;color:var(--gold);flex-shrink:0;}
 details[open] summary::after{content:'\2212';}
 .faq-body{padding:.2rem 1.3rem 1.2rem;font-size:.84rem;color:var(--text2);line-height:1.7;}
+
+/* AGENT SECTION */
+.agent-section{background:var(--light);padding:clamp(3rem,6vw,4.5rem) clamp(1.2rem,5vw,4rem);}
+.agent-section .container{max-width:900px;margin:0 auto;}
+.agent-section .section-label{color:var(--gold);}
+.agent-card{display:flex;gap:2rem;align-items:flex-start;background:#fff;border-radius:12px;padding:2rem;box-shadow:0 2px 16px rgba(0,0,0,.08);margin-top:1.5rem;}
+.agent-logo{width:90px;height:90px;border-radius:50%;object-fit:cover;background:#f4f4f4;flex-shrink:0;border:3px solid var(--gold);}
+.agent-info{flex:1;}
+.agent-name{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:.2rem;}
+.agent-cred{font-size:.82rem;font-weight:600;color:var(--gold);letter-spacing:.4px;margin-bottom:.15rem;}
+.agent-agency{font-size:.78rem;color:var(--text2);margin-bottom:.75rem;}
+.agent-bio{font-size:.86rem;color:var(--text2);line-height:1.65;margin-bottom:1rem;}
+.agent-tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:0 0 1.2rem;}
+.agent-tags li{font-size:.72rem;font-weight:600;background:var(--gold-soft,#fff8e7);color:var(--gold);border:1px solid rgba(185,130,30,.25);border-radius:20px;padding:.25rem .7rem;}
+.agent-btns{display:flex;flex-wrap:wrap;gap:.6rem;}
+@media(max-width:600px){
+  .agent-card{flex-direction:column;align-items:center;text-align:center;}
+  .agent-tags{justify-content:center;}
+  .agent-btns{justify-content:center;}
+}
 
 /* CTA DARK */
 .cta-dark{background:var(--dark);padding:clamp(3.5rem,7vw,5rem) clamp(1.2rem,5vw,4rem);text-align:center;}
@@ -603,6 +629,39 @@ details[open] summary::after{content:'\2212';}
         <summary>Is there a buyer agent fee when purchasing through Joey Koh?</summary>
         <div class="faq-body">No buyer agent fee applies. For new launch properties, agent commission is paid entirely by the developer upon a successful transaction. You pay the same developer price whether you enquire through an agent or walk in directly — and benefit from full advisory, unit selection, and loan referral at no cost.</div>
       </details>
+    </div>
+  </div>
+</section>
+
+<!-- Your Agent -->
+<section class="agent-section" id="agent" itemscope itemtype="https://schema.org/RealEstateAgent">
+  <div class="container">
+    <p class="section-label">Your Property Agent</p>
+    <div class="agent-card">
+      <img src="../business%20logo.png" alt="Joey Koh — Licensed Real Estate Negotiator REN 77548, JB Properties HUB" class="agent-logo" itemprop="image">
+      <div class="agent-info">
+        <h2 class="agent-name" itemprop="name">Joey Koh</h2>
+        <p class="agent-cred"><span itemprop="identifier">REN 77548</span> &nbsp;·&nbsp; Licensed Real Estate Negotiator</p>
+        <p class="agent-agency" itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+          <span itemprop="name">GT Nelson Realty Sdn Bhd</span> · <span itemprop="identifier">E(1)1836</span>
+        </p>
+        <p class="agent-bio" itemprop="description">
+          Specialising in new-launch freehold properties in Johor Bahru, serving Malaysian and Singapore-based buyers. Fluent in English, Mandarin and Malay.
+        </p>
+        <ul class="agent-tags">
+          <li>New Launch Specialist</li>
+          <li>CIQ &amp; RTS Zone Expert</li>
+          <li>Foreign Buyer Eligible</li>
+          <li>Responds within 1 hour</li>
+        </ul>
+        <div class="agent-btns">
+          <a href="https://wa.me/60125686285?text=Hi%20Joey%2C%20I%27m%20interested%20in%20a%20JB%20property.%20Please%20share%20more%20details." class="btn-wa" target="_blank" rel="noopener" itemprop="telephone" content="+60125686285">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
+          <a href="tel:+60125686285" class="btn-outline" itemprop="telephone">+601 2568 6285</a>
+          <a href="../about.html" class="btn-outline" itemprop="url">About Joey →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>

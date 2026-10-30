@@ -5,13 +5,8 @@ var APP_DATA = {
       "name": "The Iconic @ PGB",
       "levels": [
         {
-          "tileSize": 256,
-          "size": 256,
-          "fallbackOnly": true
-        },
-        {
           "tileSize": 512,
-          "size": 2048
+          "size": 512
         }
       ],
       "faceSize": 3880,

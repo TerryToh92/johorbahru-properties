@@ -5,9 +5,13 @@ var APP_DATA = {
       "name": "The Iconic @ PGB",
       "levels": [
         {
-          "tileSize": 512,
-          "size": 512,
+          "tileSize": 256,
+          "size": 256,
           "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 512
         },
         {
           "tileSize": 512,
@@ -16,13 +20,17 @@ var APP_DATA = {
         {
           "tileSize": 512,
           "size": 2048
+        },
+        {
+          "tileSize": 512,
+          "size": 4096
         }
       ],
       "faceSize": 3880,
       "initialViewParameters": {
         "pitch": 0,
         "yaw": 0,
-        "fov": 1.1
+        "fov": 1.5707963267948966
       },
       "linkHotspots": [],
       "infoHotspots": [

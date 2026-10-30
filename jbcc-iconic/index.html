@@ -169,7 +169,7 @@ img{display:block;max-width:100%;}
 /* NAV */
 .site-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.75rem clamp(1.2rem,4vw,3rem);background:rgba(10,18,28,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.07);}
 .nav-brand{display:flex;align-items:center;gap:.75rem;}
-.nav-brand img{height:32px;width:32px;object-fit:contain;border-radius:50%;}
+.nav-brand img{height:32px;width:32px;object-fit:contain;border-radius:50%;background:#fff;padding:2px;}
 .nav-brand-text strong{display:block;font-size:.82rem;color:#fff;letter-spacing:.5px;}
 .nav-brand-text span{font-size:.65rem;color:rgba(255,255,255,.4);letter-spacing:.5px;}
 .nav-links{display:flex;align-items:center;gap:1.4rem;}
@@ -309,6 +309,11 @@ details[open] summary::after{content:'\2212';}
 .footer-links a{color:rgba(255,255,255,.35);text-decoration:underline;font-size:.68rem;}
 .footer-links a:hover{color:rgba(255,255,255,.65);}
 .ren-bar{background:var(--dark3);color:rgba(255,255,255,.3);font-size:.65rem;letter-spacing:.8px;padding:.6rem clamp(1.2rem,5vw,4rem);text-align:center;border-top:1px solid rgba(255,255,255,.05);}
+
+/* SCROLL ANIMATIONS */
+.anim{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
+.anim.in{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){.anim{opacity:1;transform:none;}}
 </style>
 </head>
 <body>
@@ -399,12 +404,12 @@ details[open] summary::after{content:'\2212';}
 <section class="section" style="background:var(--bg2);padding-top:2.5rem;padding-bottom:2.5rem;">
   <div class="section-inner">
     <div class="hl-grid">
-      <div class="hl-card"><div class="hl-val">2.0<span style="font-size:1rem"> km</span></div><div class="hl-label">To Bukit Chagar RTS</div></div>
-      <div class="hl-card"><div class="hl-val">1.9<span style="font-size:1rem"> km</span></div><div class="hl-label">To CIQ Checkpoint</div></div>
-      <div class="hl-card"><div class="hl-val">52</div><div class="hl-label">Planned Facilities</div></div>
-      <div class="hl-card"><div class="hl-val">1,510</div><div class="hl-label">Units · Twin Towers</div></div>
-      <div class="hl-card"><div class="hl-val">1.85<span style="font-size:1rem"> ac</span></div><div class="hl-label">Facility Grounds</div></div>
-      <div class="hl-card"><div class="hl-val">L11<span style="font-size:1rem"> + roof</span></div><div class="hl-label">Facility Levels</div></div>
+      <div class="hl-card anim"><div class="hl-val">2.0<span style="font-size:1rem"> km</span></div><div class="hl-label">To Bukit Chagar RTS</div></div>
+      <div class="hl-card anim"><div class="hl-val">1.9<span style="font-size:1rem"> km</span></div><div class="hl-label">To CIQ Checkpoint</div></div>
+      <div class="hl-card anim"><div class="hl-val">52</div><div class="hl-label">Planned Facilities</div></div>
+      <div class="hl-card anim"><div class="hl-val">1,510</div><div class="hl-label">Units · Twin Towers</div></div>
+      <div class="hl-card anim"><div class="hl-val">1.85<span style="font-size:1rem"> ac</span></div><div class="hl-label">Facility Grounds</div></div>
+      <div class="hl-card anim"><div class="hl-val">L11<span style="font-size:1rem"> + roof</span></div><div class="hl-label">Facility Levels</div></div>
     </div>
   </div>
 </section>
@@ -416,42 +421,42 @@ details[open] summary::after{content:'\2212';}
     <h2 class="section-title">What Makes It Distinctive</h2>
     <div class="section-rule"></div>
     <div class="usp-grid">
-      <div class="usp-card">
+      <div class="usp-card anim">
         <div class="usp-icon"><i class="bi bi-train-front-fill"></i></div>
         <div class="usp-text">
           <strong>CIQ &amp; RTS Connectivity</strong>
           <span>2.0 km to Bukit Chagar RTS, 1.9–2.0 km to CIQ, 1.8 km to JB Sentral — all reachable via EDL &amp; Tebrau Highway.</span>
         </div>
       </div>
-      <div class="usp-card">
+      <div class="usp-card anim">
         <div class="usp-icon"><i class="bi bi-trophy-fill"></i></div>
         <div class="usp-text">
           <strong>52 Multigenerational Facilities</strong>
           <span>Padel, rooftop pickleball, golf simulator, lap pool, aqua gym, co-office, kids room and more across ~1.85 acres.</span>
         </div>
       </div>
-      <div class="usp-card">
+      <div class="usp-card anim">
         <div class="usp-icon"><i class="bi bi-leaf-fill"></i></div>
         <div class="usp-text">
           <strong>GreenRE Gold Certified</strong>
           <span>Rainwater harvesting, EV charging readiness, low-VOC paint — sustainable design for lower-impact living.</span>
         </div>
       </div>
-      <div class="usp-card">
+      <div class="usp-card anim">
         <div class="usp-icon"><i class="bi bi-bus-front-fill"></i></div>
         <div class="usp-text">
           <strong>Complimentary Shuttle</strong>
           <span>Planned shuttle to JB Sentral every 20–25 min during peak hours, with extended R&amp;F Mall stops throughout the day.</span>
         </div>
       </div>
-      <div class="usp-card">
+      <div class="usp-card anim">
         <div class="usp-icon"><i class="bi bi-house-check-fill"></i></div>
         <div class="usp-text">
           <strong>Partial Furnishing Included</strong>
           <span>5-star AC (Daikin or equivalent), ceiling fans, digital lock, kitchen cabinet, hood &amp; hob — across all three unit types.</span>
         </div>
       </div>
-      <div class="usp-card">
+      <div class="usp-card anim">
         <div class="usp-icon"><i class="bi bi-shield-lock-fill"></i></div>
         <div class="usp-text">
           <strong>Four-Tier Security</strong>
@@ -470,7 +475,7 @@ details[open] summary::after{content:'\2212';}
     <div class="section-rule"></div>
     <div class="fp-grid">
 
-      <div class="fp-card">
+      <div class="fp-card anim">
         <img src="floorplan-type-a.png" alt="The Iconic Type A 526 sqft 1BR floor plan" loading="lazy">
         <div class="fp-info">
           <div class="fp-type">Type A &mdash; 1 Bedroom</div>
@@ -480,7 +485,7 @@ details[open] summary::after{content:'\2212';}
         </div>
       </div>
 
-      <div class="fp-card">
+      <div class="fp-card anim">
         <img src="floorplan-type-b.png" alt="The Iconic Type B 756 sqft 2BR floor plan" loading="lazy">
         <div class="fp-info">
           <div class="fp-type">Type B &mdash; 2 Bedrooms</div>
@@ -490,7 +495,7 @@ details[open] summary::after{content:'\2212';}
         </div>
       </div>
 
-      <div class="fp-card">
+      <div class="fp-card anim">
         <img src="floorplan-type-c.png" alt="The Iconic Type C 956 sqft dual-key floor plan" loading="lazy">
         <div class="fp-info">
           <div class="fp-type">Type C &mdash; Dual-Key</div>
@@ -581,14 +586,17 @@ details[open] summary::after{content:'\2212';}
     <h2 class="section-title">Artist Impressions &amp; Show Unit</h2>
     <div class="section-rule"></div>
     <div class="gallery-grid">
-      <img src="hero.png"              alt="The Iconic by PGB exterior render" loading="lazy" class="g-wide">
-      <img src="gallery-pool.jpg"      alt="The Iconic lap pool artist impression" loading="lazy">
-      <img src="gallery-garden.jpg"    alt="The Iconic contemplative garden Level 11" loading="lazy">
-      <img src="gallery-interiors.jpg" alt="The Iconic facility interiors" loading="lazy">
-      <img src="gallery-lounge.jpg"    alt="The Iconic co-office and premium lounge" loading="lazy">
-      <img src="gallery-rooftop.jpg"   alt="The Iconic rooftop pickleball courts" loading="lazy" class="g-wide">
-      <img src="gallery-show-a.jpg"    alt="The Iconic Type A show unit interior" loading="lazy" class="g-wide">
-      <img src="gallery-social.jpg"    alt="The Iconic work and social spaces" loading="lazy" class="g-wide">
+      <!-- Row 1: two wide images (same height) -->
+      <img src="hero.png"              alt="The Iconic by PGB exterior render" loading="lazy" class="g-wide anim">
+      <img src="gallery-rooftop.jpg"   alt="The Iconic rooftop pool and terrace" loading="lazy" class="g-wide anim">
+      <!-- Row 2: four equal images -->
+      <img src="gallery-pool.jpg"      alt="The Iconic lap pool artist impression" loading="lazy" class="anim">
+      <img src="gallery-garden.jpg"    alt="The Iconic contemplative garden Level 11" loading="lazy" class="anim">
+      <img src="gallery-interiors.jpg" alt="The Iconic facility interiors" loading="lazy" class="anim">
+      <img src="gallery-lounge.jpg"    alt="The Iconic co-office and premium lounge" loading="lazy" class="anim">
+      <!-- Row 3: two wide images (same height) -->
+      <img src="gallery-show-a.jpg"    alt="The Iconic Type A show unit interior" loading="lazy" class="g-wide anim">
+      <img src="gallery-social.jpg"    alt="The Iconic work and social spaces" loading="lazy" class="g-wide anim">
     </div>
   </div>
 </section>
@@ -650,22 +658,22 @@ details[open] summary::after{content:'\2212';}
     <h2 class="section-title" style="color:#fff;">Complimentary Shuttle to JB Sentral</h2>
     <div class="section-rule"></div>
     <div class="shuttle-grid">
-      <div class="shuttle-card">
+      <div class="shuttle-card anim">
         <div class="shuttle-time">5:30 am – 9:30 am</div>
         <div class="shuttle-freq">Every 20–25 minutes</div>
         <div class="shuttle-route">The Iconic → JB Sentral → The Iconic</div>
       </div>
-      <div class="shuttle-card">
+      <div class="shuttle-card anim">
         <div class="shuttle-time">9:30 am – 4:30 pm</div>
         <div class="shuttle-freq">Every 1–2 hours</div>
         <div class="shuttle-route">The Iconic → R&amp;F → JB Sentral → The Iconic</div>
       </div>
-      <div class="shuttle-card">
+      <div class="shuttle-card anim">
         <div class="shuttle-time">4:30 pm – 8:30 pm</div>
         <div class="shuttle-freq">Every 20 minutes</div>
         <div class="shuttle-route">The Iconic → JB Sentral → The Iconic</div>
       </div>
-      <div class="shuttle-card">
+      <div class="shuttle-card anim">
         <div class="shuttle-time">8:30 pm – 10:30 pm</div>
         <div class="shuttle-freq">Every hour</div>
         <div class="shuttle-route">The Iconic → R&amp;F → JB Sentral → The Iconic</div>
@@ -773,6 +781,25 @@ function showFac(btn, id) {
   document.getElementById('rooftop').style.display = 'none';
   document.getElementById(id).style.display = 'grid';
 }
+
+// Scroll-in animations with stagger
+(function() {
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        var el = e.target;
+        // Stagger siblings
+        var siblings = Array.from(el.parentElement.querySelectorAll('.anim'));
+        var idx = siblings.indexOf(el);
+        el.style.transitionDelay = (idx * 80) + 'ms';
+        el.classList.add('in');
+        io.unobserve(el);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.anim').forEach(function(el) { io.observe(el); });
+})();
 </script>
 
 </body>

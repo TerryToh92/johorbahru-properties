@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project Title</title>
+<meta charset="utf-8">
+<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+<style> @-ms-viewport { width: device-width; } </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="vendor/reset.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Hide default Marzipano info-hotspot icons — replaced by leader-line system */
+.info-hotspot { display: none !important; }
+
+/* Brand watermark */
+#ann-brand {
+  position: fixed;
+  bottom: 14px;
+  left: 14px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(4,14,28,0.75);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 4px;
+  padding: 6px 10px 6px 8px;
+  pointer-events: none;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+#ann-brand img {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+#ann-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+#ann-brand-text strong {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.90);
+  letter-spacing: 0.4px;
+}
+#ann-brand-text span {
+  font-size: 8.5px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.3px;
+}
+</style>
+</head>
+<body class="single-scene view-control-buttons">
+
+<div id="pano"></div>
+
+<div id="sceneList">
+  <ul class="scenes">
+    
+      <a href="javascript:void(0)" class="scene" data-id="0-the-iconic--pgb">
+        <li class="text">The Iconic @ PGB</li>
+      </a>
+    
+  </ul>
+</div>
+
+<div id="titleBar">
+  <h1 class="sceneName"></h1>
+</div>
+
+<a href="javascript:void(0)" id="autorotateToggle">
+  <img class="icon off" src="img/play.png">
+  <img class="icon on" src="img/pause.png">
+</a>
+
+<a href="javascript:void(0)" id="fullscreenToggle">
+  <img class="icon off" src="img/fullscreen.png">
+  <img class="icon on" src="img/windowed.png">
+</a>
+
+<a href="javascript:void(0)" id="sceneListToggle">
+  <img class="icon off" src="img/expand.png">
+  <img class="icon on" src="img/collapse.png">
+</a>
+
+<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+  <img class="icon" src="img/up.png">
+</a>
+<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+  <img class="icon" src="img/down.png">
+</a>
+<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+  <img class="icon" src="img/left.png">
+</a>
+<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+  <img class="icon" src="img/right.png">
+</a>
+<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+  <img class="icon" src="img/plus.png">
+</a>
+<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+  <img class="icon" src="img/minus.png">
+</a>
+
+<script src="vendor/screenfull.min.js" ></script>
+<script src="vendor/bowser.min.js" ></script>
+<script src="vendor/marzipano.js" ></script>
+
+<script src="data.js"></script>
+<script src="index.js"></script>
+<script src="annotations.js"></script>
+
+<!-- Brand watermark — swap business logo.png for your logo file -->
+<div id="ann-brand">
+  <img src="../../business%20logo.png" alt="JB Properties HUB" onerror="this.style.display='none'">
+  <div id="ann-brand-text">
+    <strong>JB Properties HUB</strong>
+    <span>Joey Koh · REN 77548 &nbsp;|&nbsp; &copy; 2026</span>
+  </div>
+</div>
+
+</body>
+</html>

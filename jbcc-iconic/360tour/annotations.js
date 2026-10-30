@@ -26,7 +26,7 @@ var ANNOTATIONS = [
   { yaw: -1.467,  pitch:  0.727,  label: 'Putra Indah Condo',       sub: '',                            ox:  -90, oy:  -55,  type: 'building'  },
   { yaw: -1.663,  pitch:  0.032,  label: 'Singapore',               sub: 'Woodlands / Tuas',            ox:    0, oy:  -80,  type: 'country'   },
   { yaw: -2.955,  pitch:  0.036,  label: 'The Zone @ Stulang',      sub: '',                            ox:    0, oy:  -80,  type: 'building'  },
-  { yaw:  0.587,  pitch:  1.463,  label: 'The Iconic Site',         sub: 'PGB Development',             ox:   95, oy:  -55,  type: 'project'   },
+  { yaw:  0.587,  pitch:  1.463,  label: 'The Iconic Site',         sub: 'PGB Development',             ox:   95, oy:  -55,  type: 'land-cover' },
 ];
 
 // Category accent colours
@@ -52,6 +52,42 @@ function svgEl(tag, attrs) {
 }
 
 var LH = 14;  // line height for multi-line labels
+
+// ═══════════════════════════════════════════════════════════════
+//  Build land-cover group — black rect + logo image, no dot/line
+// ═══════════════════════════════════════════════════════════════
+var COVER_W = 300;
+var COVER_H = 180;
+
+function buildLandCover() {
+  var g = svgEl('g');
+  g.style.display    = 'none';
+  g.style.willChange = 'transform';
+
+  // inner group positioned via transform in tick()
+  var inner = svgEl('g');
+  g.appendChild(inner);
+
+  inner.appendChild(svgEl('rect', {
+    x: 0, y: 0,
+    width: COVER_W, height: COVER_H,
+    rx: '6',
+    fill: '#000000',
+    opacity: '0.90',
+  }));
+
+  var fo = svgEl('foreignObject', {
+    x: 20, y: 20,
+    width: COVER_W - 40, height: COVER_H - 40,
+  });
+  var imgEl = document.createElement('img');
+  imgEl.src = 'iconic-logo-sm.png';
+  imgEl.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block;';
+  fo.appendChild(imgEl);
+  inner.appendChild(fo);
+
+  return { g: g, inner: inner, isLandCover: true };
+}
 
 // ═══════════════════════════════════════════════════════════════
 //  Build one annotation group — frameless: dot + line + text only
@@ -150,11 +186,21 @@ function tick() {
     var dotX = sc.x;
     var dotY = sc.y;
 
+    // ── Land-cover: black rect + logo centred on the site ──────
+    if (grp.isLandCover) {
+      var cx = Math.max(COVER_W / 2 + 4, Math.min(W - COVER_W / 2 - 4, dotX));
+      var cy = Math.max(COVER_H / 2 + 4, Math.min(H - COVER_H / 2 - 4, dotY));
+      grp.inner.setAttribute('transform',
+        'translate(' + (cx - COVER_W / 2) + ',' + (cy - COVER_H / 2) + ')');
+      continue;
+    }
+
+    // ── Standard annotation: dot + vertical line + text ────────
     grp.dot.setAttribute('cx', dotX);
     grp.dot.setAttribute('cy', dotY);
 
     // Text sits directly above the dot, line goes straight up
-    var lineLen = 40;  // px gap from dot to text
+    var lineLen = 40;
     var tx = dotX;
     var ty = dotY - lineLen;
 
@@ -209,12 +255,18 @@ function init() {
       '<feFlood flood-color="rgba(0,0,0,0.85)" result="color"/>' +
       '<feComposite in="color" in2="expanded" operator="in" result="shadow"/>' +
       '<feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>' +
+    '</filter>' +
+    // Remove white background from logo image — makes white pixels transparent
+    '<filter id="remove-white" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB">' +
+      '<feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -1.5 -1.5 -1.5 0 4.5"/>' +
     '</filter>';
   svgRoot.appendChild(defs);
 
   // Build and add one group per annotation
   for (var i = 0; i < ANNOTATIONS.length; i++) {
-    var grp = buildGroup(ANNOTATIONS[i]);
+    var grp = ANNOTATIONS[i].type === 'land-cover'
+      ? buildLandCover()
+      : buildGroup(ANNOTATIONS[i]);
     groups.push(grp);
     svgRoot.appendChild(grp.g);
   }

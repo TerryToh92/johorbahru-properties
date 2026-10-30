@@ -258,6 +258,13 @@ img{max-width:100%;display:block;}
 .fac-item i{font-size:1.1rem;color:var(--gold);}
 .fac-item span{font-size:.78rem;color:var(--text2);line-height:1.3;}
 
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:2rem;}
+.gallery-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;display:block;transition:opacity .2s;}
+.gallery-grid img:hover{opacity:.88;}
+.gallery-grid .g-wide{grid-column:span 2;}
+@media(max-width:640px){.gallery-grid{grid-template-columns:repeat(2,1fr);}.gallery-grid .g-wide{grid-column:span 2;}}
+
 /* AMENITIES */
 .amenity-section{background:var(--bg2);}
 .amenity-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:2rem;}
@@ -314,6 +321,7 @@ details[open] summary::after{content:'\2212';}
     <a href="#floor-plans">Floor Plans</a>
     <a href="#tour">360°</a>
     <a href="#facilities">Facilities</a>
+    <a href="#gallery">Gallery</a>
     <a href="#location">Location</a>
     <a href="#faq">FAQ</a>
     <a href="https://wa.me/60125686285?text=Hi%20Joey%2C%20I'm%20interested%20in%20KSL%20Lakeview%20Taman%20Molek.%20Please%20share%20the%20latest%20pricing%20and%20floor%20plans." class="nav-cta" target="_blank" rel="noopener">
@@ -480,6 +488,25 @@ details[open] summary::after{content:'\2212';}
       <div class="fac-item"><i class="bi bi-ev-station"></i><span>EV Charging Station</span></div>
       <div class="fac-item"><i class="bi bi-shield-lock"></i><span>Multi-tier Security</span></div>
       <div class="fac-item"><i class="bi bi-bus-front"></i><span>Shuttle Bus to KSL City</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+  <div class="section-inner">
+    <p class="section-label">Gallery</p>
+    <h2 class="section-title">Showroom &amp; Facilities</h2>
+    <div class="section-rule"></div>
+    <div class="gallery-grid">
+      <img src="gallery-entrance.webp"      alt="KSL Lakeview entrance view" loading="lazy" class="g-wide">
+      <img src="gallery-infinity-pool.webp" alt="KSL Lakeview infinity pool" loading="lazy">
+      <img src="gallery-pool-view.webp"     alt="KSL Lakeview pool view" loading="lazy">
+      <img src="gallery-pool-deck.webp"     alt="KSL Lakeview pool deck and landscaping" loading="lazy" class="g-wide">
+      <img src="gallery-gym.webp"           alt="KSL Lakeview gymnasium" loading="lazy">
+      <img src="gallery-bbq.webp"           alt="KSL Lakeview BBQ area" loading="lazy">
+      <img src="gallery-facilities.webp"    alt="KSL Lakeview facilities floor" loading="lazy">
+      <img src="gallery-playground.webp"    alt="KSL Lakeview playground" loading="lazy">
     </div>
   </div>
 </section>

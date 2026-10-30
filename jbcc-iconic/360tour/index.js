@@ -86,7 +86,7 @@
       source: source,
       geometry: geometry,
       view: view,
-      pinFirstLevel: false
+      pinFirstLevel: true
     });
 
     // Create link hotspots.

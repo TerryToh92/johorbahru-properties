@@ -6,7 +6,16 @@ var APP_DATA = {
       "levels": [
         {
           "tileSize": 512,
-          "size": 512
+          "size": 512,
+          "fallbackOnly": true
+        },
+        {
+          "tileSize": 512,
+          "size": 1024
+        },
+        {
+          "tileSize": 512,
+          "size": 2048
         }
       ],
       "faceSize": 3880,

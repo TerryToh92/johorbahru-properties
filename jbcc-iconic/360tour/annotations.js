@@ -82,12 +82,13 @@ function buildGroup(ann) {
   });
   g.appendChild(dot);
 
-  // Title text — white with text-shadow via filter
+  // Title text — centered above dot
   var titleEl = svgEl('text', {
     'font-family': "'Inter', system-ui, sans-serif",
     'font-size': '11',
     'font-weight': '700',
     fill: '#ffffff',
+    'text-anchor': 'middle',
     'dominant-baseline': 'middle',
     filter: 'url(#ann-txt)',
   });
@@ -102,6 +103,7 @@ function buildGroup(ann) {
       'font-size': '9',
       'font-weight': '400',
       fill: color,
+      'text-anchor': 'middle',
       'dominant-baseline': 'middle',
       filter: 'url(#ann-txt)',
     });
@@ -151,30 +153,31 @@ function tick() {
     grp.dot.setAttribute('cx', dotX);
     grp.dot.setAttribute('cy', dotY);
 
-    // Label anchor: offset from dot
-    var tx = dotX + ann.ox;
-    var ty = dotY + ann.oy;
+    // Text sits directly above the dot, line goes straight up
+    var lineLen = 40;  // px gap from dot to text
+    var tx = dotX;
+    var ty = dotY - lineLen;
 
-    // Clamp label inside viewport
+    // Clamp inside viewport
     var mg = 8;
-    tx = Math.max(mg, Math.min(W - 100 - mg, tx));
-    ty = Math.max(mg + 6, Math.min(H - (grp.hasSub ? LH * 2 : LH) - mg, ty));
+    tx = Math.max(mg + 60, Math.min(W - mg - 60, tx));
+    ty = Math.max(mg + (grp.hasSub ? LH * 2 : LH), Math.min(dotY - 8, ty));
 
     if (grp.hasSub) {
       grp.titleEl.setAttribute('x', tx);
-      grp.titleEl.setAttribute('y', ty);
+      grp.titleEl.setAttribute('y', ty - LH * 0.5);
       grp.subEl.setAttribute('x', tx);
-      grp.subEl.setAttribute('y', ty + LH);
+      grp.subEl.setAttribute('y', ty + LH * 0.5);
     } else {
       grp.titleEl.setAttribute('x', tx);
       grp.titleEl.setAttribute('y', ty);
     }
 
-    // Line from dot to text anchor
+    // Vertical line from dot up to text baseline
     grp.line.setAttribute('x1', dotX);
-    grp.line.setAttribute('y1', dotY);
+    grp.line.setAttribute('y1', dotY - 4);
     grp.line.setAttribute('x2', tx);
-    grp.line.setAttribute('y2', ty);
+    grp.line.setAttribute('y2', ty + (grp.hasSub ? LH : LH * 0.5) + 2);
   }
 }
 
